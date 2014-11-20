@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var lastUpdatedLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
     
     let url:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
     var mainTimer:NSTimer?
@@ -45,6 +46,7 @@ class ViewController: UIViewController {
 
     func updateTitle() {
         var tempString = "--°"
+        var humidityString = "---%"
         var error: NSError?
         let jsonData = NSData(contentsOfURL: url)
         if (jsonData != nil) {
@@ -53,10 +55,12 @@ class ViewController: UIViewController {
             
             if (error == nil) {
                 tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
+                humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
                 lastUpdatedLabel.text = NSDate(dateString: jsonDict["published_at"] as String).localFormat()
             }
         }
         temperatureLabel.text = tempString
+        humidityLabel.text = humidityString
     }
 }
 
