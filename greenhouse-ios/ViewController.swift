@@ -13,8 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var outsideTempLabel: UILabel!
     
-    let url:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
+    let envUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
+    let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1//weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ class ViewController: UIViewController {
         var tempString = "--°"
         var humidityString = "---%"
         var error: NSError?
-        let jsonData = NSData(contentsOfURL: url)
+        let jsonData = NSData(contentsOfURL: envUrl)
         if (jsonData != nil) {
             let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
             
@@ -61,6 +63,19 @@ class ViewController: UIViewController {
         }
         temperatureLabel.text = tempString
         humidityLabel.text = humidityString
+        
+        var outsideTempString = "--°"
+        let jsonData2 = NSData(contentsOfURL: outsideUrl)
+        if (jsonData2 != nil) {
+            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2!, options: nil, error: &error) as NSDictionary
+            
+            
+            if (error == nil) {
+                outsideTempString = String(format: "%.1f°", jsonDict["temp_f"] as Double)
+            }
+        }
+        
+        outsideTempLabel.text = outsideTempString
     }
 }
 
