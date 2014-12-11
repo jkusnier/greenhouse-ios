@@ -11,9 +11,18 @@ import XCTest
 
 class greenhouse_iosTests: XCTestCase {
     
+    var vc : ViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: self.dynamicType))
+        
+        vc = storyboard.instantiateViewControllerWithIdentifier("mainView") as ViewController
+        XCTAssertNotNil(vc, "Test Not Configured Properly")
+        vc.loadView()
+        
+        XCTAssert(true, "Pass")
     }
     
     override func tearDown() {
@@ -21,16 +30,14 @@ class greenhouse_iosTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func testTemperatureLabel() {
+        if let m_vc = vc {
+            var temperatureLabel = m_vc.temperatureLabel
+            XCTAssertNotNil(temperatureLabel, "Temperature Label Not Present")
+            
+            XCTAssertNotEqual(temperatureLabel.text!, "", "Temperature Label Not Set")
+        } else {
+            XCTFail("ViewController not loaded")
         }
     }
-    
 }

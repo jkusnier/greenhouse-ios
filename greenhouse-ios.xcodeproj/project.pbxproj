@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4319F9CB1700736E4C /* AppDelegate.swift */; };
+		9692B5D61A39BE2300C7BC0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4519F9CB1700736E4C /* ViewController.swift */; };
+		9692B5D71A39BE2B00C7BC0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CDEC4719F9CB1700736E4C /* Main.storyboard */; };
+		9692B5D81A39BE3100C7BC0B /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */; };
 		96CDEC4419F9CB1700736E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4319F9CB1700736E4C /* AppDelegate.swift */; };
 		96CDEC4619F9CB1700736E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4519F9CB1700736E4C /* ViewController.swift */; };
 		96CDEC4919F9CB1700736E4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CDEC4719F9CB1700736E4C /* Main.storyboard */; };
@@ -206,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9692B5D71A39BE2B00C7BC0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9692B5D81A39BE3100C7BC0B /* NSDateExtension.swift in Sources */,
+				9692B5D61A39BE2300C7BC0B /* ViewController.swift in Sources */,
+				9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */,
 				96CDEC5A19F9CB1700736E4C /* greenhouse_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +428,7 @@
 				96CDEC5F19F9CB1700736E4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96CDEC6019F9CB1700736E4C /* Build configuration list for PBXNativeTarget "greenhouse-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +437,7 @@
 				96CDEC6219F9CB1700736E4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
