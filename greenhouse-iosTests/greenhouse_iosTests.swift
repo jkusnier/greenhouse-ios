@@ -40,4 +40,15 @@ class greenhouse_iosTests: XCTestCase {
             XCTFail("ViewController not loaded")
         }
     }
+
+    func testLastUpdatedLabel() {
+        if let m_vc = vc {
+            var lastUpdatedLabel = m_vc.lastUpdatedLabel
+            XCTAssertNotNil(lastUpdatedLabel, "Last Updated Label Not Present")
+            
+            XCTAssertNotEqual(lastUpdatedLabel.text!, "", "Last Updated Label Not Set")
+        } else {
+            XCTFail("ViewController not loaded")
+        }
+    }
 }
