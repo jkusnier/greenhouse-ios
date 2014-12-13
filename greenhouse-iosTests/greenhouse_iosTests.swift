@@ -51,4 +51,15 @@ class greenhouse_iosTests: XCTestCase {
             XCTFail("ViewController not loaded")
         }
     }
+
+    func testHumidityLabel() {
+        if let m_vc = vc {
+            var humidityLabel = m_vc.humidityLabel
+            XCTAssertNotNil(humidityLabel, "Humidity Label Not Present")
+            
+            XCTAssertNotEqual(humidityLabel.text!, "", "Humidity Label Not Set")
+        } else {
+            XCTFail("ViewController not loaded")
+        }
+    }
 }
