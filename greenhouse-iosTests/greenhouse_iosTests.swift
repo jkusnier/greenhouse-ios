@@ -62,4 +62,15 @@ class greenhouse_iosTests: XCTestCase {
             XCTFail("ViewController not loaded")
         }
     }
+
+    func testOutsideTempLabel() {
+        if let m_vc = vc {
+            var outsideTempLabel = m_vc.outsideTempLabel
+            XCTAssertNotNil(outsideTempLabel, "Outside Temp Label Not Present")
+            
+            XCTAssertNotEqual(outsideTempLabel.text!, "", "Outside Temp Label Not Set")
+        } else {
+            XCTFail("ViewController not loaded")
+        }
+    }
 }
