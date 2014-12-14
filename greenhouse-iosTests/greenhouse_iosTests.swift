@@ -73,4 +73,10 @@ class greenhouse_iosTests: XCTestCase {
             XCTFail("ViewController not loaded")
         }
     }
+    
+    func testMainTimer() {
+        if let timer = vc.mainTimer {
+            XCTAssertNotNil(timer, "Timer Not Created")
+        }
+    }
 }
