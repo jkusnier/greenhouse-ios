@@ -77,6 +77,8 @@ class greenhouse_iosTests: XCTestCase {
     func testMainTimer() {
         if let timer = vc.mainTimer {
             XCTAssertNotNil(timer, "Timer Not Created")
+            
+            XCTAssertEqual(timer.timeInterval, vc.timeInterval, "Time Interval Different")
         }
     }
 }

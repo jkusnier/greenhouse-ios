@@ -19,10 +19,12 @@ class ViewController: UIViewController {
     let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1//weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
+    let timeInterval:NSTimeInterval = 60 as NSTimeInterval
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
+        mainTimer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: NSSystemClockDidChangeNotification, object: nil)
         
