@@ -15,14 +15,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var outsideTempLabel: UILabel!
     
+    var allLabels: [UILabel]?
+    
     let envUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
     let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1//weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
     let timeInterval:NSTimeInterval = 60 as NSTimeInterval
     
+    let limitLow: Double = 38
+    let limitHigh: Double = 85
+    
+    let limitLowColor = UIColor.blueColor()
+    let limitHighColor = UIColor.redColor()
+    let limitNormalColor = UIColor.greenColor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allLabels = [temperatureLabel, lastUpdatedLabel, humidityLabel, outsideTempLabel]
         
         mainTimer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
         
@@ -59,6 +70,7 @@ class ViewController: UIViewController {
             
             if (error == nil) {
                 tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
+                setBackgroundColor(jsonDict["fahrenheit"] as Double)
                 humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
                 lastUpdatedLabel.text = NSDate(dateString: jsonDict["published_at"] as String).localFormat()
             }
@@ -78,6 +90,27 @@ class ViewController: UIViewController {
         }
         
         outsideTempLabel.text = outsideTempString
+    }
+    
+    func setBackgroundColor(temperature: Double) {
+        if (temperature <= limitLow) {
+            self.view.backgroundColor = limitLowColor
+            setLabelColor(UIColor.whiteColor())
+        } else if (temperature >= limitHigh) {
+            self.view.backgroundColor = limitHighColor
+            setLabelColor(UIColor.whiteColor())
+        } else {
+            self.view.backgroundColor = limitNormalColor
+            setLabelColor(UIColor.blackColor())
+        }
+    }
+    
+    func setLabelColor(color: UIColor) {
+        if let labels = allLabels {
+            for label: UILabel in labels {
+                label.textColor = color
+            }
+        }
     }
 }
 
