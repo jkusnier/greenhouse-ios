@@ -79,6 +79,7 @@ class greenhouse_iosTests: XCTestCase {
             XCTAssertNotNil(timer, "Timer Not Created")
             
             XCTAssertEqual(timer.timeInterval, vc.timeInterval, "Time Interval Different")
+            XCTAssertTrue(timer.valid, "Timer is not valid")
         }
     }
 }
