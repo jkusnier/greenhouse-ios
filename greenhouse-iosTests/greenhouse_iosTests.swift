@@ -82,4 +82,26 @@ class greenhouse_iosTests: XCTestCase {
             XCTAssertTrue(timer.valid, "Timer is not valid")
         }
     }
+    
+    func testBackgroundColor() {
+        if let m_vc = vc {
+            m_vc.setBackgroundColor(m_vc.limitLow)
+            XCTAssertEqual(m_vc.limitLowColor, m_vc.view.backgroundColor!, "Cold Background Color Failed")
+            
+            m_vc.setBackgroundColor(m_vc.limitLow - 10)
+            XCTAssertEqual(m_vc.limitLowColor, m_vc.view.backgroundColor!, "Cold Background Color Failed")
+
+            m_vc.setBackgroundColor(m_vc.limitHigh)
+            XCTAssertEqual(m_vc.limitHighColor, m_vc.view.backgroundColor!, "Hot Background Color Failed")
+            
+            m_vc.setBackgroundColor(m_vc.limitHigh + 10)
+            XCTAssertEqual(m_vc.limitHighColor, m_vc.view.backgroundColor!, "Hot Background Color Failed")
+            
+            m_vc.setBackgroundColor(m_vc.limitHigh - 10)
+            XCTAssertEqual(m_vc.limitNormalColor, m_vc.view.backgroundColor!, "Normal Background Color Failed")
+            
+            m_vc.setBackgroundColor(m_vc.limitLow + 10)
+            XCTAssertEqual(m_vc.limitNormalColor, m_vc.view.backgroundColor!, "Normal Background Color Failed")
+        }
+    }
 }
