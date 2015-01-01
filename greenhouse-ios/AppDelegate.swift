@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "_batteryStateChanged", name: UIDeviceBatteryStateDidChangeNotification, object: nil)
+        
         return true
     }
 
@@ -28,9 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        self._batteryStateChanged()
     }
 
     func applicationWillTerminate(application: UIApplication) {
+    }
+    
+    func _batteryStateChanged() {
+        // If plugged in, no idle timeout
+        let currentState = UIDevice.currentDevice().batteryState
+        if (currentState == UIDeviceBatteryState.Charging || currentState == UIDeviceBatteryState.Full) {
+            UIApplication.sharedApplication().idleTimerDisabled = true
+        } else {
+            UIApplication.sharedApplication().idleTimerDisabled = false
+        }
     }
 }
 
