@@ -64,8 +64,8 @@ class ViewController: UIViewController {
         var humidityString = "---%"
         var error: NSError?
         let jsonData = NSData(contentsOfURL: envUrl)
-        if (jsonData != nil) {
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as NSDictionary
+        if let jsonData = jsonData? {
+            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
             
             
             if (error == nil) {
@@ -80,8 +80,8 @@ class ViewController: UIViewController {
         
         var outsideTempString = "--°"
         let jsonData2 = NSData(contentsOfURL: outsideUrl)
-        if (jsonData2 != nil) {
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2!, options: nil, error: &error) as NSDictionary
+        if let jsonData2 = jsonData2? {
+            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2, options: nil, error: &error) as NSDictionary
             
             
             if (error == nil) {
