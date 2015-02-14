@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var outsideTempLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var allLabels: [UILabel]?
     
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allLabels = [temperatureLabel, lastUpdatedLabel, humidityLabel, outsideTempLabel]
+        allLabels = [temperatureLabel, lastUpdatedLabel, humidityLabel, outsideTempLabel, titleLabel]
         
         mainTimer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
         
@@ -62,9 +63,9 @@ class ViewController: UIViewController {
     func updateTitle() {
         var tempString = "--°"
         var humidityString = "---%"
-        var error: NSError?
         let jsonData = NSData(contentsOfURL: envUrl)
         if let jsonData = jsonData? {
+            var error: NSError?
             let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
             
             
@@ -81,6 +82,7 @@ class ViewController: UIViewController {
         var outsideTempString = "--°"
         let jsonData2 = NSData(contentsOfURL: outsideUrl)
         if let jsonData2 = jsonData2? {
+            var error: NSError?
             let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2, options: nil, error: &error) as NSDictionary
             
             

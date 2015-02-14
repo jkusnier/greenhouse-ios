@@ -67,6 +67,7 @@
                         <outlet property="lastUpdatedLabel" destination="fhx-IJ-sFw" id="xr2-wo-fYw"/>
                         <outlet property="outsideTempLabel" destination="qi8-W9-U3l" id="68G-HJ-dwz"/>
                         <outlet property="temperatureLabel" destination="oag-yM-hTr" id="LsW-Vb-Hlo"/>
+                        <outlet property="titleLabel" destination="HMj-sy-gFY" id="JKC-gn-bHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
