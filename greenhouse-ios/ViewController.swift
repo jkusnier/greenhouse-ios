@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var allLabels: [UILabel]?
     
     let envUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
-    let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1//weather/STATION-HERE/fahrenheit/now")!
+    let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
     let timeInterval:NSTimeInterval = 60 as NSTimeInterval
