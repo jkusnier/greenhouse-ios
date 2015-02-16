@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "_batteryStateChanged", name: UIDeviceBatteryStateDidChangeNotification, object: nil)
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaultsDict = ["lowTempAlert": 38, "highTempAlert": 85]
+        defaults.registerDefaults(defaultsDict)
+        
         return true
     }
 

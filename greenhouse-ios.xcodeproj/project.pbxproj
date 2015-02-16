@@ -18,6 +18,7 @@
 		96CDEC4E19F9CB1700736E4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CDEC4C19F9CB1700736E4C /* LaunchScreen.xib */; };
 		96CDEC5A19F9CB1700736E4C /* greenhouse_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC5919F9CB1700736E4C /* greenhouse_iosTests.swift */; };
 		96CDEC6419F9D1EF00736E4C /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */; };
+		96E811CD1A90D9F10089FE5F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96E811CC1A90D9F10089FE5F /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		96CDEC5819F9CB1700736E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CDEC5919F9CB1700736E4C /* greenhouse_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greenhouse_iosTests.swift; sourceTree = "<group>"; };
 		96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		96E811CC1A90D9F10089FE5F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				96CDEC4C19F9CB1700736E4C /* LaunchScreen.xib */,
 				96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */,
 				96CDEC4119F9CB1700736E4C /* Supporting Files */,
+				96E811CC1A90D9F10089FE5F /* Settings.bundle */,
 			);
 			path = "greenhouse-ios";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E811CD1A90D9F10089FE5F /* Settings.bundle in Resources */,
 				96CDEC4919F9CB1700736E4C /* Main.storyboard in Resources */,
 				96CDEC4E19F9CB1700736E4C /* LaunchScreen.xib in Resources */,
 				96CDEC4B19F9CB1700736E4C /* Images.xcassets in Resources */,

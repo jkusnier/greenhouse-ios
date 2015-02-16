@@ -8,6 +8,8 @@
 
 import UIKit
 
+private var defaultsContext = 0
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -24,8 +26,8 @@ class ViewController: UIViewController {
     
     let timeInterval:NSTimeInterval = 60 as NSTimeInterval
     
-    let limitLow: Double = 38
-    let limitHigh: Double = 85
+    var limitLow: Double = 38
+    var limitHigh: Double = 85
     
     let limitLowColor = UIColor.blueColor()
     let limitHighColor = UIColor.redColor()
@@ -33,7 +35,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        updateDefaults()        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDefaults", name: NSUserDefaultsDidChangeNotification, object: nil)
+
         allLabels = [temperatureLabel, lastUpdatedLabel, humidityLabel, outsideTempLabel, titleLabel]
         
         mainTimer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
@@ -46,6 +51,16 @@ class ViewController: UIViewController {
         updateTitle()
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func updateDefaults() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
+        self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

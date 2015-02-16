@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Alert Temperatures F°</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Low Temp</string>
+			<key>Key</key>
+			<string>lowTempAlert</string>
+			<key>DefaultValue</key>
+			<integer>38</integer>
+			<key>Titles</key>
+			<array>
+				<string>50°</string>
+				<string>48°</string>
+				<string>45°</string>
+				<string>42°</string>
+				<string>40°</string>
+				<string>38°</string>
+				<string>35°</string>
+				<string>32°</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>50</integer>
+				<integer>48</integer>
+				<integer>45</integer>
+				<integer>42</integer>
+				<integer>40</integer>
+				<integer>38</integer>
+				<integer>35</integer>
+				<integer>32</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>High Temp</string>
+			<key>Key</key>
+			<string>highTempAlert</string>
+			<key>DefaultValue</key>
+			<integer>85</integer>
+			<key>Titles</key>
+			<array>
+				<string>80°</string>
+				<string>82°</string>
+				<string>85°</string>
+				<string>88°</string>
+				<string>90°</string>
+				<string>92°</string>
+				<string>95°</string>
+				<string>98°</string>
+				<string>100°</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>80</integer>
+				<integer>82</integer>
+				<integer>85</integer>
+				<integer>88</integer>
+				<integer>90</integer>
+				<integer>92</integer>
+				<integer>95</integer>
+				<integer>98</integer>
+				<integer>100</integer>
+			</array>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
