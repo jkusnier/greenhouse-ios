@@ -29,9 +29,9 @@ class ViewController: UIViewController {
     var limitLow: Double = 38
     var limitHigh: Double = 85
     
-    let limitLowColor = UIColor.blueColor()
-    let limitHighColor = UIColor.redColor()
-    let limitNormalColor = UIColor.greenColor()
+    let limitLowColor = UIColor(red: 132/255, green: 183/255, blue: 255/255, alpha: 1) //UIColor.blueColor()
+    let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
+    let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
