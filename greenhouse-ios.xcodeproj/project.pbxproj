@@ -131,6 +131,7 @@
 			buildPhases = (
 				96CDEC3A19F9CB1700736E4C /* Sources */,
 				96CDEC3B19F9CB1700736E4C /* Frameworks */,
+				963AC9E71A95681600F4CFFE /* ShellScript */,
 				96CDEC3C19F9CB1700736E4C /* Resources */,
 			);
 			buildRules = (
@@ -219,6 +220,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		963AC9E71A95681600F4CFFE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "version=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuild=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy \"$SRCROOT/greenhouse-ios/Settings.bundle/Root.plist\" -c \"Set PreferenceSpecifiers:4:DefaultValue $version ($build)\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		96CDEC3A19F9CB1700736E4C /* Sources */ = {

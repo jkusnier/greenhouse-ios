@@ -11,14 +11,12 @@
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
-			<key>Title</key>
-			<string>Low Temp</string>
-			<key>Key</key>
-			<string>lowTempAlert</string>
 			<key>DefaultValue</key>
 			<integer>38</integer>
+			<key>Key</key>
+			<string>lowTempAlert</string>
+			<key>Title</key>
+			<string>Low Temp</string>
 			<key>Titles</key>
 			<array>
 				<string>50°</string>
@@ -30,6 +28,8 @@
 				<string>35°</string>
 				<string>32°</string>
 			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
 			<key>Values</key>
 			<array>
 				<integer>50</integer>
@@ -43,14 +43,12 @@
 			</array>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
-			<key>Title</key>
-			<string>High Temp</string>
-			<key>Key</key>
-			<string>highTempAlert</string>
 			<key>DefaultValue</key>
 			<integer>85</integer>
+			<key>Key</key>
+			<string>highTempAlert</string>
+			<key>Title</key>
+			<string>High Temp</string>
 			<key>Titles</key>
 			<array>
 				<string>80°</string>
@@ -63,6 +61,8 @@
 				<string>98°</string>
 				<string>100°</string>
 			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
 			<key>Values</key>
 			<array>
 				<integer>80</integer>
@@ -75,6 +75,22 @@
 				<integer>98</integer>
 				<integer>100</integer>
 			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>About</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0.2.2 (1)</string>
+			<key>Key</key>
+			<string>versionIdent</string>
+			<key>Title</key>
+			<string>Version</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
