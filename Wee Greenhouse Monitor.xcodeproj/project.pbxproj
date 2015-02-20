@@ -32,14 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		96CDEC3E19F9CB1700736E4C /* greenhouse-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "greenhouse-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wee Greenhouse Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CDEC4219F9CB1700736E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CDEC4319F9CB1700736E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96CDEC4519F9CB1700736E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		96CDEC4819F9CB1700736E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96CDEC4A19F9CB1700736E4C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		96CDEC4D19F9CB1700736E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		96CDEC5319F9CB1700736E4C /* greenhouse-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "greenhouse-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CDEC5319F9CB1700736E4C /* Wee Greenhouse MonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wee Greenhouse MonitorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CDEC5819F9CB1700736E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CDEC5919F9CB1700736E4C /* greenhouse_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greenhouse_iosTests.swift; sourceTree = "<group>"; };
 		96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 		96CDEC3F19F9CB1700736E4C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96CDEC3E19F9CB1700736E4C /* greenhouse-ios.app */,
-				96CDEC5319F9CB1700736E4C /* greenhouse-iosTests.xctest */,
+				96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */,
+				96CDEC5319F9CB1700736E4C /* Wee Greenhouse MonitorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96CDEC3D19F9CB1700736E4C /* greenhouse-ios */ = {
+		96CDEC3D19F9CB1700736E4C /* Wee Greenhouse Monitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96CDEC5D19F9CB1700736E4C /* Build configuration list for PBXNativeTarget "greenhouse-ios" */;
+			buildConfigurationList = 96CDEC5D19F9CB1700736E4C /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor" */;
 			buildPhases = (
 				96CDEC3A19F9CB1700736E4C /* Sources */,
 				96CDEC3B19F9CB1700736E4C /* Frameworks */,
@@ -138,14 +138,14 @@
 			);
 			dependencies = (
 			);
-			name = "greenhouse-ios";
+			name = "Wee Greenhouse Monitor";
 			productName = "greenhouse-ios";
-			productReference = 96CDEC3E19F9CB1700736E4C /* greenhouse-ios.app */;
+			productReference = 96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		96CDEC5219F9CB1700736E4C /* greenhouse-iosTests */ = {
+		96CDEC5219F9CB1700736E4C /* Wee Greenhouse MonitorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96CDEC6019F9CB1700736E4C /* Build configuration list for PBXNativeTarget "greenhouse-iosTests" */;
+			buildConfigurationList = 96CDEC6019F9CB1700736E4C /* Build configuration list for PBXNativeTarget "Wee Greenhouse MonitorTests" */;
 			buildPhases = (
 				96CDEC4F19F9CB1700736E4C /* Sources */,
 				96CDEC5019F9CB1700736E4C /* Frameworks */,
@@ -156,9 +156,9 @@
 			dependencies = (
 				96CDEC5519F9CB1700736E4C /* PBXTargetDependency */,
 			);
-			name = "greenhouse-iosTests";
+			name = "Wee Greenhouse MonitorTests";
 			productName = "greenhouse-iosTests";
-			productReference = 96CDEC5319F9CB1700736E4C /* greenhouse-iosTests.xctest */;
+			productReference = 96CDEC5319F9CB1700736E4C /* Wee Greenhouse MonitorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -180,7 +180,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 96CDEC3919F9CB1700736E4C /* Build configuration list for PBXProject "greenhouse-ios" */;
+			buildConfigurationList = 96CDEC3919F9CB1700736E4C /* Build configuration list for PBXProject "Wee Greenhouse Monitor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -193,8 +193,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96CDEC3D19F9CB1700736E4C /* greenhouse-ios */,
-				96CDEC5219F9CB1700736E4C /* greenhouse-iosTests */,
+				96CDEC3D19F9CB1700736E4C /* Wee Greenhouse Monitor */,
+				96CDEC5219F9CB1700736E4C /* Wee Greenhouse MonitorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 /* Begin PBXTargetDependency section */
 		96CDEC5519F9CB1700736E4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96CDEC3D19F9CB1700736E4C /* greenhouse-ios */;
+			target = 96CDEC3D19F9CB1700736E4C /* Wee Greenhouse Monitor */;
 			targetProxy = 96CDEC5419F9CB1700736E4C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -378,7 +378,7 @@
 				INFOPLIST_FILE = "greenhouse-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wee Greenhouse Monitor";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -392,7 +392,7 @@
 				INFOPLIST_FILE = "greenhouse-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Wee Greenhouse Monitor";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -411,8 +411,8 @@
 				);
 				INFOPLIST_FILE = "greenhouse-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greenhouse-ios.app/greenhouse-ios";
+				PRODUCT_NAME = "Wee Greenhouse MonitorTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greenhouse monitor.app/greenhouse monitor";
 			};
 			name = Debug;
 		};
@@ -426,15 +426,15 @@
 				);
 				INFOPLIST_FILE = "greenhouse-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greenhouse-ios.app/greenhouse-ios";
+				PRODUCT_NAME = "Wee Greenhouse MonitorTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greenhouse monitor.app/greenhouse monitor";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96CDEC3919F9CB1700736E4C /* Build configuration list for PBXProject "greenhouse-ios" */ = {
+		96CDEC3919F9CB1700736E4C /* Build configuration list for PBXProject "Wee Greenhouse Monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96CDEC5B19F9CB1700736E4C /* Debug */,
@@ -443,7 +443,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96CDEC5D19F9CB1700736E4C /* Build configuration list for PBXNativeTarget "greenhouse-ios" */ = {
+		96CDEC5D19F9CB1700736E4C /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96CDEC5E19F9CB1700736E4C /* Debug */,
@@ -452,7 +452,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96CDEC6019F9CB1700736E4C /* Build configuration list for PBXNativeTarget "greenhouse-iosTests" */ = {
+		96CDEC6019F9CB1700736E4C /* Build configuration list for PBXNativeTarget "Wee Greenhouse MonitorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96CDEC6119F9CB1700736E4C /* Debug */,
