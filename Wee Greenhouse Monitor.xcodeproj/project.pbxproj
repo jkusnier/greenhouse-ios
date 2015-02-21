@@ -412,7 +412,7 @@
 				INFOPLIST_FILE = "greenhouse-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Wee Greenhouse MonitorTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greenhouse monitor.app/greenhouse monitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wee greenhouse monitor.app/wee greenhouse monitor";
 			};
 			name = Debug;
 		};
@@ -427,7 +427,7 @@
 				INFOPLIST_FILE = "greenhouse-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Wee Greenhouse MonitorTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greenhouse monitor.app/greenhouse monitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wee greenhouse monitor.app/wee greenhouse monitor";
 			};
 			name = Release;
 		};
