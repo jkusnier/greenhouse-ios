@@ -77,6 +77,20 @@
 			</array>
 		</dict>
 		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Device</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Device Id</string>
+			<key>Key</key>
+			<string>deviceId</string>
+		</dict>
+		<dict>
 			<key>Title</key>
 			<string>About</string>
 			<key>Type</key>
