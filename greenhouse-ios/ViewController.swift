@@ -55,6 +55,18 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let deviceId = defaults.valueForKey("deviceId") as? String {
+        } else {
+            // Request the deviceId
+            self.performSegueWithIdentifier("requestDeviceId", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
+
     func updateDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
