@@ -65,6 +65,9 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dest = segue.destinationViewController as? DeviceIdViewController {
+            dest.delegateViewController = self
+        }
     }
 
     func updateDefaults() {
@@ -140,6 +143,10 @@ class ViewController: UIViewController {
                 label.textColor = color
             }
         }
+    }
+    
+    func closeModal() {
+        self.dismissViewControllerAnimated(true, completion: nil);
     }
 }
 

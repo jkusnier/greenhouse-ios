@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		967862F91AA24BFC004AB4C0 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4319F9CB1700736E4C /* AppDelegate.swift */; };
 		9692B5D61A39BE2300C7BC0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4519F9CB1700736E4C /* ViewController.swift */; };
@@ -260,6 +261,7 @@
 				9692B5D61A39BE2300C7BC0B /* ViewController.swift in Sources */,
 				9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */,
 				96CDEC5A19F9CB1700736E4C /* greenhouse_iosTests.swift in Sources */,
+				960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

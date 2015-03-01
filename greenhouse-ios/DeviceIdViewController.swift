@@ -10,6 +10,9 @@ import UIKit
 
 class DeviceIdViewController: UIViewController {
 
+    @IBOutlet weak var deviceIdText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
     var delegateViewController:UIViewController?
     
     override func viewDidLoad() {
@@ -33,6 +36,19 @@ class DeviceIdViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func deviceIdChanged(sender: AnyObject) {
+        self.saveButton.enabled = !self.deviceIdText.text.isEmpty
+    }
 
+    @IBAction func savePressed(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(self.deviceIdText.text, forKey: "deviceId")
+        defaults.synchronize()
+        
+        if let vc = self.delegateViewController as? ViewController {
+            vc.closeModal()
+        }
+    }
     
 }
