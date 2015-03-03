@@ -56,10 +56,19 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        var requestDeviceId = false
         let defaults = NSUserDefaults.standardUserDefaults()
         if let deviceId = defaults.valueForKey("deviceId") as? String {
+            if deviceId.isEmpty {
+                requestDeviceId = true
+            } else {
+                // Set up the device
+            }
         } else {
-            // Request the deviceId
+            requestDeviceId = true
+        }
+        
+        if requestDeviceId {
             self.performSegueWithIdentifier("requestDeviceId", sender: self)
         }
     }
