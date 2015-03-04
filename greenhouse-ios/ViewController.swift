@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     var allLabels: [UILabel]?
     
-    let envUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
+    var envUrl:NSURL? = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
     let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
         self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
+        self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")! // FIXME put the prev value in
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
     func updateTitle() {
         var tempString = "--°"
         var humidityString = "---%"
-        let jsonData = NSData(contentsOfURL: envUrl)
+        let jsonData = NSData(contentsOfURL: envUrl!) // FIXME this could blow up
         if let jsonData = jsonData? {
             var error: NSError?
             let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
