@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     var allLabels: [UILabel]?
     
-    var envUrl:NSURL? = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")!
+    var envUrl:NSURL?
     let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
@@ -83,7 +83,9 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
         self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
-        self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment")! // FIXME put the prev value in
+        if let deviceId = defaults.stringForKey("deviceId") {
+            self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/\(deviceId)/environment")!
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,17 +105,19 @@ class ViewController: UIViewController {
     func updateTitle() {
         var tempString = "--°"
         var humidityString = "---%"
-        let jsonData = NSData(contentsOfURL: envUrl!) // FIXME this could blow up
-        if let jsonData = jsonData? {
-            var error: NSError?
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
-            
-            
-            if (error == nil) {
-                tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
-                setBackgroundColor(jsonDict["fahrenheit"] as Double)
-                humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
-                lastUpdatedLabel.text = NSDate(dateString: jsonDict["published_at"] as String).localFormat()
+        if let envUrl = envUrl {
+            let jsonData = NSData(contentsOfURL: envUrl)
+            if let jsonData = jsonData? {
+                var error: NSError?
+                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
+                
+                
+                if (error == nil) {
+                    tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
+                    setBackgroundColor(jsonDict["fahrenheit"] as Double)
+                    humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
+                    lastUpdatedLabel.text = NSDate(dateString: jsonDict["published_at"] as String).localFormat()
+                }
             }
         }
         temperatureLabel.text = tempString
