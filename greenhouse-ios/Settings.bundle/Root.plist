@@ -98,7 +98,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.3.1 (2)</string>
+			<string>0.3.2 (3)</string>
 			<key>Key</key>
 			<string>versionIdent</string>
 			<key>Title</key>

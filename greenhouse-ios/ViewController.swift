@@ -84,7 +84,16 @@ class ViewController: UIViewController {
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
         self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
         if let deviceId = defaults.stringForKey("deviceId") {
-            self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/\(deviceId)/environment")!
+            if deviceId.isEmpty {
+                defaults.removeObjectForKey("deviceId")
+                defaults.synchronize()
+            }
+            
+            if let deviceId = defaults.stringForKey("deviceId") {
+                self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/\(deviceId)/environment")!
+            } else {
+                println("deviceId not found")
+            }
         }
     }
     
