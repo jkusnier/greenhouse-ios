@@ -77,18 +77,18 @@
 			</array>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Device</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Device Id</string>
 			<key>Key</key>
 			<string>deviceId</string>
+			<key>Title</key>
+			<string>Device Id</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
 		</dict>
 		<dict>
 			<key>Title</key>
@@ -98,7 +98,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.3.0 (1)</string>
+			<string>0.3.1 (2)</string>
 			<key>Key</key>
 			<string>versionIdent</string>
 			<key>Title</key>
