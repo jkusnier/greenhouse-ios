@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
         self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
         if let deviceId = defaults.stringForKey("deviceId") {
-            if deviceId.isEmpty {
+            if deviceId.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
                 defaults.removeObjectForKey("deviceId")
                 defaults.synchronize()
             }
