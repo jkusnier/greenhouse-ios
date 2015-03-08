@@ -114,7 +114,7 @@ class ViewController: UIViewController {
     func updateTitle() {
         var tempString = "--°"
         var humidityString = "---%"
-        if let envUrl = envUrl {
+        if let envUrl = self.envUrl {
             let jsonData = NSData(contentsOfURL: envUrl)
             if let jsonData = jsonData? {
                 var error: NSError?
