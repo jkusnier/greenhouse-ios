@@ -47,8 +47,6 @@ class ViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopTimer", name: UIApplicationWillResignActiveNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: UIApplicationWillEnterForegroundNotification, object: nil)
-        
-        updateTitle()
     }
 
     deinit {
@@ -92,6 +90,7 @@ class ViewController: UIViewController {
             
             if let deviceId = defaults.stringForKey("deviceId") {
                 self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/\(deviceId)/environment")!
+                updateTitle()
             } else {
                 println("deviceId not found")
             }
