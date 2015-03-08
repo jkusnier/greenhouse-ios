@@ -55,23 +55,24 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        var requestDeviceId = false
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let deviceId = defaults.valueForKey("deviceId") as? String {
-            if deviceId.isEmpty {
-                requestDeviceId = true
-            } else {
-                // Set up the device
-            }
-        } else {
-            requestDeviceId = true
-        }
-        
-        if requestDeviceId {
-            self.performSegueWithIdentifier("requestDeviceId", sender: self)
-        }
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        // Default deviceId makes this flow impossible. Saving for future iteration.
+//        var requestDeviceId = false
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        if let deviceId = defaults.valueForKey("deviceId") as? String {
+//            if deviceId.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
+//                requestDeviceId = true
+//            } else {
+//                // Set up the device
+//            }
+//        } else {
+//            requestDeviceId = true
+//        }
+//        
+//        if requestDeviceId {
+//            self.performSegueWithIdentifier("requestDeviceId", sender: self)
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let dest = segue.destinationViewController as? DeviceIdViewController {
