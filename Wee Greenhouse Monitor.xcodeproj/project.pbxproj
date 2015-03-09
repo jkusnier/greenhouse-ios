@@ -21,6 +21,13 @@
 		96CDEC5A19F9CB1700736E4C /* greenhouse_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC5919F9CB1700736E4C /* greenhouse_iosTests.swift */; };
 		96CDEC6419F9D1EF00736E4C /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */; };
 		96E811CD1A90D9F10089FE5F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96E811CC1A90D9F10089FE5F /* Settings.bundle */; };
+		96FF30D91AAD10AA00FC1B1D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */; };
+		96FF30DB1AAD10AA00FC1B1D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */; };
+		96FF30DD1AAD10AA00FC1B1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */; };
+		96FF30E11AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */; };
+		96FF30E91AAD10AA00FC1B1D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30E71AAD10AA00FC1B1D /* Interface.storyboard */; };
+		96FF30EB1AAD10AA00FC1B1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30EA1AAD10AA00FC1B1D /* Images.xcassets */; };
+		96FF30EE1AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 96FF30D31AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +38,35 @@
 			remoteGlobalIDString = 96CDEC3D19F9CB1700736E4C;
 			remoteInfo = "greenhouse-ios";
 		};
+		96FF30E21AAD10AA00FC1B1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96CDEC3619F9CB1700736E4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96FF30DF1AAD10AA00FC1B1D;
+			remoteInfo = "Wee Greenhouse Monitor WatchKit App";
+		};
+		96FF30EC1AAD10AA00FC1B1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96CDEC3619F9CB1700736E4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96FF30D21AAD10AA00FC1B1D;
+			remoteInfo = "Wee Greenhouse Monitor WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96FF30F51AAD10AA00FC1B1D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				96FF30EE1AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceIdViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +82,16 @@
 		96CDEC5919F9CB1700736E4C /* greenhouse_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greenhouse_iosTests.swift; sourceTree = "<group>"; };
 		96CDEC6319F9D1EF00736E4C /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		96E811CC1A90D9F10089FE5F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		96FF30D31AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wee Greenhouse Monitor WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96FF30D61AAD10AA00FC1B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96FF30D71AAD10AA00FC1B1D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wee Greenhouse Monitor WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96FF30E61AAD10AA00FC1B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96FF30E81AAD10AA00FC1B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		96FF30EA1AAD10AA00FC1B1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +109,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96FF30D01AAD10AA00FC1B1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -72,6 +124,8 @@
 			children = (
 				96CDEC4019F9CB1700736E4C /* greenhouse-ios */,
 				96CDEC5619F9CB1700736E4C /* greenhouse-iosTests */,
+				96FF30D41AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension */,
+				96FF30E41AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App */,
 				96CDEC3F19F9CB1700736E4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +135,8 @@
 			children = (
 				96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */,
 				96CDEC5319F9CB1700736E4C /* Wee Greenhouse MonitorTests.xctest */,
+				96FF30D31AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension.appex */,
+				96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +182,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		96FF30D41AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */,
+				96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */,
+				96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */,
+				96FF30D51AAD10AA00FC1B1D /* Supporting Files */,
+			);
+			path = "Wee Greenhouse Monitor WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		96FF30D51AAD10AA00FC1B1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96FF30D61AAD10AA00FC1B1D /* Info.plist */,
+				96FF30D71AAD10AA00FC1B1D /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		96FF30E41AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				96FF30E71AAD10AA00FC1B1D /* Interface.storyboard */,
+				96FF30EA1AAD10AA00FC1B1D /* Images.xcassets */,
+				96FF30E51AAD10AA00FC1B1D /* Supporting Files */,
+			);
+			path = "Wee Greenhouse Monitor WatchKit App";
+			sourceTree = "<group>";
+		};
+		96FF30E51AAD10AA00FC1B1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96FF30E61AAD10AA00FC1B1D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,10 +231,12 @@
 				96CDEC3B19F9CB1700736E4C /* Frameworks */,
 				963AC9E71A95681600F4CFFE /* ShellScript */,
 				96CDEC3C19F9CB1700736E4C /* Resources */,
+				96FF30F51AAD10AA00FC1B1D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				96FF30ED1AAD10AA00FC1B1D /* PBXTargetDependency */,
 			);
 			name = "Wee Greenhouse Monitor";
 			productName = "greenhouse-ios";
@@ -165,6 +261,39 @@
 			productReference = 96CDEC5319F9CB1700736E4C /* Wee Greenhouse MonitorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		96FF30D21AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96FF30F21AAD10AA00FC1B1D /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor WatchKit Extension" */;
+			buildPhases = (
+				96FF30CF1AAD10AA00FC1B1D /* Sources */,
+				96FF30D01AAD10AA00FC1B1D /* Frameworks */,
+				96FF30D11AAD10AA00FC1B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96FF30E31AAD10AA00FC1B1D /* PBXTargetDependency */,
+			);
+			name = "Wee Greenhouse Monitor WatchKit Extension";
+			productName = "Wee Greenhouse Monitor WatchKit Extension";
+			productReference = 96FF30D31AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		96FF30DF1AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96FF30EF1AAD10AA00FC1B1D /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor WatchKit App" */;
+			buildPhases = (
+				96FF30DE1AAD10AA00FC1B1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wee Greenhouse Monitor WatchKit App";
+			productName = "Wee Greenhouse Monitor WatchKit App";
+			productReference = 96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,6 +310,13 @@
 					96CDEC5219F9CB1700736E4C = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 96CDEC3D19F9CB1700736E4C;
+					};
+					96FF30D21AAD10AA00FC1B1D = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = W5X24H3PJV;
+					};
+					96FF30DF1AAD10AA00FC1B1D = {
+						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -199,6 +335,8 @@
 			targets = (
 				96CDEC3D19F9CB1700736E4C /* Wee Greenhouse Monitor */,
 				96CDEC5219F9CB1700736E4C /* Wee Greenhouse MonitorTests */,
+				96FF30D21AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension */,
+				96FF30DF1AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -220,6 +358,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				9692B5D71A39BE2B00C7BC0B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96FF30D11AAD10AA00FC1B1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96FF30E11AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app in Resources */,
+				96FF30DD1AAD10AA00FC1B1D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96FF30DE1AAD10AA00FC1B1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96FF30E91AAD10AA00FC1B1D /* Interface.storyboard in Resources */,
+				96FF30EB1AAD10AA00FC1B1D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +421,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96FF30CF1AAD10AA00FC1B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96FF30DB1AAD10AA00FC1B1D /* NotificationController.swift in Sources */,
+				96FF30D91AAD10AA00FC1B1D /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -272,6 +437,16 @@
 			isa = PBXTargetDependency;
 			target = 96CDEC3D19F9CB1700736E4C /* Wee Greenhouse Monitor */;
 			targetProxy = 96CDEC5419F9CB1700736E4C /* PBXContainerItemProxy */;
+		};
+		96FF30E31AAD10AA00FC1B1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96FF30DF1AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App */;
+			targetProxy = 96FF30E21AAD10AA00FC1B1D /* PBXContainerItemProxy */;
+		};
+		96FF30ED1AAD10AA00FC1B1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96FF30D21AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension */;
+			targetProxy = 96FF30EC1AAD10AA00FC1B1D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -290,6 +465,14 @@
 				96CDEC4D19F9CB1700736E4C /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		96FF30E71AAD10AA00FC1B1D /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96FF30E81AAD10AA00FC1B1D /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -381,6 +564,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "greenhouse-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -394,7 +578,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "greenhouse-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -437,6 +622,70 @@
 			};
 			name = Release;
 		};
+		96FF30F01AAD10AA00FC1B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Wee_Greenhouse_Monitor_WatchKit_Extension;
+				INFOPLIST_FILE = "Wee Greenhouse Monitor WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		96FF30F11AAD10AA00FC1B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				IBSC_MODULE = Wee_Greenhouse_Monitor_WatchKit_Extension;
+				INFOPLIST_FILE = "Wee Greenhouse Monitor WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		96FF30F31AAD10AA00FC1B1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Wee Greenhouse Monitor WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		96FF30F41AAD10AA00FC1B1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "Wee Greenhouse Monitor WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -466,6 +715,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		96FF30EF1AAD10AA00FC1B1D /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96FF30F01AAD10AA00FC1B1D /* Debug */,
+				96FF30F11AAD10AA00FC1B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		96FF30F21AAD10AA00FC1B1D /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96FF30F31AAD10AA00FC1B1D /* Debug */,
+				96FF30F41AAD10AA00FC1B1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
