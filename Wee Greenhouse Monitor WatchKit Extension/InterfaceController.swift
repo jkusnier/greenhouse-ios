@@ -27,6 +27,7 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
+        updateTitle()
     }
 
     override func willActivate() {
@@ -37,6 +38,54 @@ class InterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    }
+    
+    func updateTitle() {
+        var tempString = "--°"
+        var humidityString = "---%"
+        if let envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment") {
+            let jsonData = NSData(contentsOfURL: envUrl)
+            if let jsonData = jsonData? {
+                var error: NSError?
+                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
+                
+                
+                if (error == nil) {
+                    tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
+                    setBackgroundColor(jsonDict["fahrenheit"] as Double)
+                    humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
+                    if let publishedAt = jsonDict["published_at"] as? String {
+                        
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        let date = dateFormatter.dateFromString(publishedAt)
+                        
+                        if let date = date {
+                        
+                            let dateStr = NSDateFormatter.localizedStringFromDate(date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.MediumStyle)
+                        
+                            lastUpdated.setText(dateStr)
+                        }
+                    }
+                }
+            }
+        }
+        self.temperatureLabel.setText(tempString)
+//        humidityLabel.text = humidityString
+        
+    }
+    
+    func setBackgroundColor(temperature: Double) {
+        if (temperature <= limitLow) {
+            self.temperatureLabel.setTextColor(self.limitLowColor)
+            self.lastUpdated.setTextColor(self.limitLowColor)
+        } else if (temperature >= limitHigh) {
+            self.temperatureLabel.setTextColor(self.limitHighColor)
+            self.lastUpdated.setTextColor(self.limitHighColor)
+        } else {
+            self.temperatureLabel.setTextColor(self.limitNormalColor)
+            self.lastUpdated.setTextColor(self.limitNormalColor)
+        }
     }
 
 }

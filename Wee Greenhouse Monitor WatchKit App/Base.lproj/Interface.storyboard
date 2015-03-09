@@ -13,6 +13,10 @@
                         <group width="1" alignment="left" id="Sok-Z7-ojW">
                             <items>
                                 <label alignment="left" text="34°" id="BIA-hV-7OQ"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="Lnj-WP-4uP">
+                            <items>
                                 <label alignment="left" text="Label" id="auL-RO-Lyb"/>
                             </items>
                         </group>
