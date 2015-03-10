@@ -61,9 +61,13 @@ class InterfaceController: WKInterfaceController {
                         let date = dateFormatter.dateFromString(publishedAt)
                         
                         if let date = date {
-                        
-                            let dateStr = NSDateFormatter.localizedStringFromDate(date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.MediumStyle)
-                        
+                            
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateStyle = .ShortStyle
+                            dateFormatter.timeStyle = .ShortStyle
+                            dateFormatter.doesRelativeDateFormatting = true
+
+                            let dateStr = dateFormatter.stringFromDate(date)
                             lastUpdated.setText(dateStr)
                         }
                     }

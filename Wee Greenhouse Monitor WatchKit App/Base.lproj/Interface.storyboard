@@ -10,22 +10,15 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Wee_Greenhouse_Monitor_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" alignment="left" id="Sok-Z7-ojW">
-                            <items>
-                                <label alignment="center" verticalAlignment="center" text="34°" id="BIA-hV-7OQ">
-                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                                </label>
-                            </items>
-                        </group>
-                        <group width="1" alignment="left" id="Lnj-WP-4uP">
-                            <items>
-                                <label alignment="left" text="Label" id="auL-RO-Lyb"/>
-                            </items>
-                        </group>
+                        <label alignment="center" verticalAlignment="center" text="34.7°" id="BIA-hV-7OQ">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="64"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="bottom" text="Label" id="auL-RO-Lyb">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="lastUpdated" destination="auL-RO-Lyb" id="cyz-yT-VYb"/>
-                        <outlet property="mainGroup" destination="Sok-Z7-ojW" id="ZEj-sc-d0A"/>
                         <outlet property="temperatureLabel" destination="BIA-hV-7OQ" id="ihA-K4-HaQ"/>
                     </connections>
                 </controller>
