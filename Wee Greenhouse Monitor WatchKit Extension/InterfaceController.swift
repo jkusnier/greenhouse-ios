@@ -16,6 +16,10 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var temperatureLabel: WKInterfaceLabel!
     @IBOutlet weak var lastUpdated: WKInterfaceLabel!
 
+    var mainTimer:NSTimer?
+    
+    let timeInterval:NSTimeInterval = 60 as NSTimeInterval
+    
     var limitLow: Double = 38
     var limitHigh: Double = 85
     
@@ -26,10 +30,21 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        mainTimer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: NSSystemClockDidChangeNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopTimer", name: UIApplicationWillResignActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        
         // Configure interface objects here.
         updateTitle()
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
@@ -91,5 +106,14 @@ class InterfaceController: WKInterfaceController {
             self.lastUpdated.setTextColor(self.limitNormalColor)
         }
     }
-
+    
+    func resetTimer(aNotification: NSNotification) {
+        mainTimer?.invalidate()
+        mainTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
+        updateTitle()
+    }
+    
+    func stopTimer() {
+        mainTimer?.invalidate()
+    }
 }
