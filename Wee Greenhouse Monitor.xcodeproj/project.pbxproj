@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
+		962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */; };
 		967862F91AA24BFC004AB4C0 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4319F9CB1700736E4C /* AppDelegate.swift */; };
 		9692B5D61A39BE2300C7BC0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4519F9CB1700736E4C /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceIdViewController.swift; sourceTree = "<group>"; };
 		96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wee Greenhouse Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CDEC4219F9CB1700736E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		96FF30D41AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */,
 				96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */,
 				96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */,
 				96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */,
@@ -427,6 +430,7 @@
 			files = (
 				96FF30DB1AAD10AA00FC1B1D /* NotificationController.swift in Sources */,
 				96FF30D91AAD10AA00FC1B1D /* InterfaceController.swift in Sources */,
+				962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +727,7 @@
 				96FF30F11AAD10AA00FC1B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96FF30F21AAD10AA00FC1B1D /* Build configuration list for PBXNativeTarget "Wee Greenhouse Monitor WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -731,6 +736,7 @@
 				96FF30F41AAD10AA00FC1B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
