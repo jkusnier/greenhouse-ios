@@ -10,9 +10,18 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Wee_Greenhouse_Monitor_WatchKit_App" customModuleProvider="target">
                     <items>
+                        <label alignment="left" text="Greenhouse" id="WF2-aS-NcD">
+                            <color key="textColor" red="0.73725490196078436" green="0.88627450980392153" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <separator alignment="left" id="6FT-1X-gSo">
+                            <color key="color" red="0.73725490196078436" green="0.88627450980392153" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
                         <label alignment="center" verticalAlignment="center" text="34.7°" id="BIA-hV-7OQ">
                             <fontDescription key="font" type="system" weight="thin" pointSize="64"/>
                         </label>
+                        <separator alignment="left" verticalAlignment="bottom" id="a54-np-Ns5">
+                            <color key="color" red="0.73725490196078436" green="0.88627450980392153" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
                         <label alignment="center" verticalAlignment="bottom" text="Label" id="auL-RO-Lyb">
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
