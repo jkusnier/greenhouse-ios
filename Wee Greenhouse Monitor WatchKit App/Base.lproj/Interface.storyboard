@@ -29,10 +29,11 @@
                     <connections>
                         <outlet property="lastUpdated" destination="auL-RO-Lyb" id="cyz-yT-VYb"/>
                         <outlet property="temperatureLabel" destination="BIA-hV-7OQ" id="ihA-K4-HaQ"/>
+                        <segue destination="2Oa-s4-yg9" kind="relationship" relationship="nextPage" id="IEC-Qp-lWl"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="219" y="352"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -81,6 +82,35 @@
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Wee_Greenhouse_Monitor_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="Xix-T7-Ehc">
+            <objects>
+                <controller id="2Oa-s4-yg9">
+                    <items>
+                        <label alignment="left" text="Greenhouse" id="25f-kS-np7">
+                            <color key="textColor" red="0.73725490199999999" green="0.8862745098" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <separator alignment="left" id="pEv-dy-VzM">
+                            <color key="color" red="0.73725490199999999" green="0.8862745098" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="center" verticalAlignment="center" text="47%" id="oVz-WW-N5g">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="64"/>
+                        </label>
+                        <separator alignment="left" verticalAlignment="bottom" id="vaV-Gg-IwS">
+                            <color key="color" red="0.73725490199999999" green="0.8862745098" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <label alignment="center" verticalAlignment="bottom" text="Label" id="EIG-vd-J9K">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="lastUpdated" destination="EIG-vd-J9K" id="tgm-2U-dWB"/>
+                        <outlet property="temperatureLabel" destination="oVz-WW-N5g" id="2j2-mH-i58"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="352"/>
         </scene>
     </scenes>
 </document>
