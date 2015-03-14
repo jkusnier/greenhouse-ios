@@ -10,6 +10,7 @@
 		960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */; };
 		967862F91AA24BFC004AB4C0 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
+		967C2B551AB4C7F600E1E3BE /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */; };
 		9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4319F9CB1700736E4C /* AppDelegate.swift */; };
 		9692B5D61A39BE2300C7BC0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4519F9CB1700736E4C /* ViewController.swift */; };
 		9692B5D71A39BE2B00C7BC0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CDEC4719F9CB1700736E4C /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceIdViewController.swift; sourceTree = "<group>"; };
+		967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumidityViewController.swift; sourceTree = "<group>"; };
 		96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wee Greenhouse Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CDEC4219F9CB1700736E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CDEC4319F9CB1700736E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */,
 				96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */,
+				967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */,
 				96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */,
 				96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */,
 				96FF30D51AAD10AA00FC1B1D /* Supporting Files */,
@@ -431,6 +434,7 @@
 				96FF30DB1AAD10AA00FC1B1D /* NotificationController.swift in Sources */,
 				96FF30D91AAD10AA00FC1B1D /* InterfaceController.swift in Sources */,
 				962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */,
+				967C2B551AB4C7F600E1E3BE /* HumidityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
