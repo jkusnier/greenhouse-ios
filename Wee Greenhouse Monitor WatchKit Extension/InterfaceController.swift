@@ -26,7 +26,10 @@ class InterfaceController: WKInterfaceController {
     let limitLowColor = UIColor(red: 132/255, green: 183/255, blue: 255/255, alpha: 1) //UIColor.blueColor()
     let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
     let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
-    
+
+    let normalImagePrefix = "green-dial-outer-"
+    var currentImageName = "green-dial-outer-001"
+
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -90,6 +93,23 @@ class InterfaceController: WKInterfaceController {
             }
         }
         self.temperatureLabel.setText(tempString)
+        
+        var imageArray = [UIImage]()
+        for (var i=1;i<=100;i++) {
+            let seq = String(format: "%03d", arguments: [i])
+            let imageName = "\(self.normalImagePrefix)\(seq)"
+            let image = UIImage(named: imageName)
+            if let image = image {
+                imageArray.append(image)
+            }
+        }
+        
+        let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
+
+        self.mainGroup.setBackgroundImage(dialImage)
+        let tInterval = imageArray.count > 10 ? 3.0 : 1.0
+        self.mainGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: imageArray.count), duration: tInterval, repeatCount: 1)
+
 //        humidityLabel.text = humidityString
         
     }
