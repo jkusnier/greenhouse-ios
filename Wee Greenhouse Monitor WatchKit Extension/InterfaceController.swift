@@ -28,7 +28,9 @@ class InterfaceController: WKInterfaceController {
     let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
 
     let normalImagePrefix = "green-dial-outer-"
-    var currentImageName = "green-dial-outer-001"
+    let lowImagePrefix = "blue-dial-outer-"
+    let highImagePrefix = "red-dial-outer-"
+    var currentImageIndex = 1
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -60,6 +62,7 @@ class InterfaceController: WKInterfaceController {
     
     func updateTitle() {
         var tempString = "--°"
+        var tempDbl = 0.0
         var humidityString = "---%"
         if let envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment") {
             let jsonData = NSData(contentsOfURL: envUrl)
@@ -70,6 +73,7 @@ class InterfaceController: WKInterfaceController {
                 
                 if (error == nil) {
                     tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
+                    tempDbl = jsonDict["fahrenheit"] as Double
                     setBackgroundColor(jsonDict["fahrenheit"] as Double)
                     humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
                     if let publishedAt = jsonDict["published_at"] as? String {
@@ -94,15 +98,31 @@ class InterfaceController: WKInterfaceController {
         }
         self.temperatureLabel.setText(tempString)
         
+        let imageIndex = Int(((tempDbl - self.limitLow) / (self.limitHigh - self.limitLow)) * 100)
+        
         var imageArray = [UIImage]()
-        for (var i=1;i<=100;i++) {
-            let seq = String(format: "%03d", arguments: [i])
-            let imageName = "\(self.normalImagePrefix)\(seq)"
-            let image = UIImage(named: imageName)
-            if let image = image {
-                imageArray.append(image)
+        // FIXME this will not work outside of the normal range
+        if imageIndex >= self.currentImageIndex {
+            for (var i=self.currentImageIndex;i<=imageIndex;i++) {
+                let seq = String(format: "%03d", arguments: [i])
+                let imageName = "\(self.normalImagePrefix)\(seq)"
+                let image = UIImage(named: imageName)
+                if let image = image {
+                    imageArray.append(image)
+                }
+            }
+        } else {
+            for (var i=self.currentImageIndex;i>=imageIndex;i--) {
+                let seq = String(format: "%03d", arguments: [i])
+                let imageName = "\(self.normalImagePrefix)\(seq)"
+                let image = UIImage(named: imageName)
+                if let image = image {
+                    imageArray.append(image)
+                }
             }
         }
+        
+        self.currentImageIndex = imageIndex
         
         let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
 
