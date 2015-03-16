@@ -101,17 +101,24 @@ class InterfaceController: WKInterfaceController {
         let imageIndex = Int(((tempDbl - self.limitLow) / (self.limitHigh - self.limitLow)) * 100)
         
         var imageArray = [UIImage]()
-        // FIXME this will not work outside of the normal range
-        if imageIndex >= self.currentImageIndex {
-            for (var i=self.currentImageIndex;i<=imageIndex;i++) {
-                let seq = String(format: "%03d", arguments: [i])
-                let imageName = "\(self.normalImagePrefix)\(seq)"
-                let image = UIImage(named: imageName)
-                if let image = image {
-                    imageArray.append(image)
+        if imageIndex >= self.currentImageIndex { // Going Up
+            if tempDbl <= self.limitLow {
+                // Roll the Blue dials from self.currentImageIndex to tempDbl
+                // Be aware of self.currentImageIndex existing in Green or Red range
+            } else if tempDbl >= self.limitHigh {
+                // Roll the Red dials from self.currentImageIndex to tempDbl
+                // Be aware of self.currentImageIndex existing in Green or Blue range
+            } else {
+                for (var i=self.currentImageIndex;i<=imageIndex;i++) {
+                    let seq = String(format: "%03d", arguments: [i])
+                    let imageName = "\(self.normalImagePrefix)\(seq)"
+                    let image = UIImage(named: imageName)
+                    if let image = image {
+                        imageArray.append(image)
+                    }
                 }
             }
-        } else {
+        } else { // Going Down
             for (var i=self.currentImageIndex;i>=imageIndex;i--) {
                 let seq = String(format: "%03d", arguments: [i])
                 let imageName = "\(self.normalImagePrefix)\(seq)"
