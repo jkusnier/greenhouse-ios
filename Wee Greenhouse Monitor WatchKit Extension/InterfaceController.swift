@@ -31,6 +31,7 @@ class InterfaceController: WKInterfaceController {
     let lowImagePrefix = "blue-dial-outer-"
     let highImagePrefix = "red-dial-outer-"
     var currentImageIndex = 1
+    var previousTemp : Double = 0
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -100,15 +101,18 @@ class InterfaceController: WKInterfaceController {
         
         let imageIndex = Int(((tempDbl - self.limitLow) / (self.limitHigh - self.limitLow)) * 100)
         
+        var isDone = false
         var imageArray = [UIImage]()
         if imageIndex >= self.currentImageIndex { // Going Up
-            if tempDbl <= self.limitLow {
-                // Roll the Blue dials from self.currentImageIndex to tempDbl
-                // Be aware of self.currentImageIndex existing in Green or Red range
-            } else if tempDbl >= self.limitHigh {
-                // Roll the Red dials from self.currentImageIndex to tempDbl
-                // Be aware of self.currentImageIndex existing in Green or Blue range
-            } else {
+            if self.previousTemp <= self.limitLow {
+                // Load blue from previousTemp to 0 or tempDbl
+                // If to tempDbl, isDone = true
+            }
+            if !isDone && self.previousTemp < self.limitHigh {
+                // Load green from 0 to tempDbl or 100
+                // If to tempDbl, isDone = true
+                
+                // FIXME base this on a function to get the image step/starting point
                 for (var i=self.currentImageIndex;i<=imageIndex;i++) {
                     let seq = String(format: "%03d", arguments: [i])
                     let imageName = "\(self.normalImagePrefix)\(seq)"
@@ -118,17 +122,34 @@ class InterfaceController: WKInterfaceController {
                     }
                 }
             }
+            if !isDone && tempDbl >= self.limitHigh {
+                // Load red from 0 to tempDbl or 100
+            }
         } else { // Going Down
-            for (var i=self.currentImageIndex;i>=imageIndex;i--) {
-                let seq = String(format: "%03d", arguments: [i])
-                let imageName = "\(self.normalImagePrefix)\(seq)"
-                let image = UIImage(named: imageName)
-                if let image = image {
-                    imageArray.append(image)
+            if self.previousTemp >= self.limitHigh {
+                // Load read images from previousTemp to tempDbl or 0
+                // If to tempDbl, isDone = true
+            }
+            if !isDone && self.previousTemp > self.limitLow {
+                // Load green from previousTemp to tempDbl or 0
+                // If to tempDbl, isDone = true
+                
+                // FIXME base this on a function to get the image step/starting point
+                for (var i=self.currentImageIndex;i>=imageIndex;i--) {
+                    let seq = String(format: "%03d", arguments: [i])
+                    let imageName = "\(self.normalImagePrefix)\(seq)"
+                    let image = UIImage(named: imageName)
+                    if let image = image {
+                        imageArray.append(image)
+                    }
                 }
+            }
+            if !isDone && self.previousTemp <= self.limitLow {
+                // Load blue from 0 to tempDbl or 100
             }
         }
         
+        self.previousTemp = tempDbl
         self.currentImageIndex = imageIndex
         
         let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
