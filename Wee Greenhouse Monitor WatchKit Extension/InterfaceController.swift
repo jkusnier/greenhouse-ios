@@ -37,6 +37,8 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        self.previousTemp = self.limitLow
+        
         mainTimer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: NSSystemClockDidChangeNotification, object: nil)
@@ -105,7 +107,7 @@ class InterfaceController: WKInterfaceController {
         var isDone = false
         var imageArray = [UIImage]()
         if tempDbl >= self.previousTemp { // Going Up
-            if self.previousTemp <= self.limitLow {
+            if self.previousTemp < self.limitLow {
                 // Load blue from previousTemp to 0 or tempDbl
                 // If to tempDbl, isDone = true
                 println("Up -> Below Low")
