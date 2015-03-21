@@ -157,6 +157,20 @@ class InterfaceController: WKInterfaceController {
             }
             if !isDone && tempDbl >= self.limitHigh {
                 // Load red from 0 to tempDbl or 100
+                
+                let imageIndex = Int((tempDbl - Double(self.limitHigh)) * Double(imageStep))
+                let imageMax = imageIndex > 100 ? 100 : imageIndex
+                for (var i=self.previousImageIndex;i<=imageMax;i++) {
+                    let seq = String(format: "%03d", arguments: [i])
+                    let imageName = "\(self.highImagePrefix)\(seq)"
+                    let image = UIImage(named: imageName)
+                    if let image = image {
+                        imageArray.append(image)
+                    }
+                }
+                
+                self.previousImageIndex = imageIndex
+                
                 println("Up -> Above High")
                 self.previousImageIndex = 0
             }
