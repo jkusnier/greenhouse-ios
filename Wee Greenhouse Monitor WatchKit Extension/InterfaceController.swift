@@ -178,6 +178,25 @@ class InterfaceController: WKInterfaceController {
             if self.previousTemp >= self.limitHigh {
                 // Load read images from previousTemp to tempDbl or 0
                 // If to tempDbl, isDone = true
+                
+                let imageIndex = Int((tempDbl - Double(self.limitHigh)) * Double(imageStep))
+                let imageMin = (tempDbl < self.limitHigh) ? 0 : imageIndex
+                for (var i=self.previousImageIndex;i>=imageMin;i--) {
+                    let seq = String(format: "%03d", arguments: [i])
+                    let imageName = "\(self.highImagePrefix)\(seq)"
+                    let image = UIImage(named: imageName)
+                    if let image = image {
+                        imageArray.append(image)
+                    }
+                }
+                
+                if imageMin > 0 {
+                    isDone = true
+                    self.previousImageIndex = imageIndex
+                } else {
+                    self.previousImageIndex = 100
+                }
+                
                 println("Down -> Above High")
             }
             if !isDone && self.previousTemp > self.limitLow {
