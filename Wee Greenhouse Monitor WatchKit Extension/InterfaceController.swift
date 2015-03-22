@@ -172,7 +172,6 @@ class InterfaceController: WKInterfaceController {
                 self.previousImageIndex = imageIndex
                 
                 println("Up -> Above High")
-                self.previousImageIndex = 0
             }
         } else { // Going Down
             if self.previousTemp >= self.limitHigh {
