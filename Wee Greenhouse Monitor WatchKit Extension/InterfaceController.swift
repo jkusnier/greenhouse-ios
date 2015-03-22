@@ -217,13 +217,27 @@ class InterfaceController: WKInterfaceController {
                     isDone = true
                     self.previousImageIndex = imageIndex
                 } else {
-                    self.previousImageIndex = 100
+                    self.previousImageIndex = 0
                 }
                 
                 println("Down -> Normal")
             }
-            if !isDone && self.previousTemp <= self.limitLow {
+            if !isDone && tempDbl <= self.limitLow {
                 // Load blue from 0 to tempDbl or 100
+                
+                let imageIndex = Int((Double(self.limitLow) - tempDbl) * Double(imageStep))
+                let imageMax = imageIndex > 100 ? 100 : imageIndex
+                for (var i=self.previousImageIndex;i<=imageMax;i++) {
+                    let seq = String(format: "%03d", arguments: [i])
+                    let imageName = "\(self.lowImagePrefix)\(seq)"
+                    let image = UIImage(named: imageName)
+                    if let image = image {
+                        imageArray.append(image)
+                    }
+                }
+                
+                self.previousImageIndex = imageIndex
+                
                 println("Down -> Below Low")
             }
         }
