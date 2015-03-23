@@ -102,8 +102,10 @@ class InterfaceController: WKInterfaceController {
         }
         self.temperatureLabel.setText(tempString)
 
-        let imageStep = Int((1 / (self.limitHigh - self.limitLow)) * 100)
-        
+        func getImageIndex(offset: Double) -> Int {
+            return Int(offset * ((1 / (limitHigh - limitLow)) * 100))
+        }
+
         var isDone = false
         var imageArray = [UIImage]()
         if tempDbl >= self.previousTemp { // Going Up
@@ -111,7 +113,7 @@ class InterfaceController: WKInterfaceController {
                 // Load blue from previousTemp to 0 or tempDbl
                 // If to tempDbl, isDone = true
                 
-                let imageIndex = Int((Double(self.limitLow) - tempDbl) * Double(imageStep))
+                let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
                 let imageMax = imageIndex < 0 ? 0 : imageIndex
                 for (var i=self.previousImageIndex;i>=imageMax;i--) {
                     let seq = String(format: "%03d", arguments: [i])
@@ -135,7 +137,7 @@ class InterfaceController: WKInterfaceController {
                 // Load green from 0 to tempDbl or 100
                 // If to tempDbl, isDone = true
                 
-                let imageIndex = Int((tempDbl - Double(self.limitLow)) * Double(imageStep))
+                let imageIndex = getImageIndex(tempDbl - self.limitLow)
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 for (var i=self.previousImageIndex;i<=imageMax;i++) {
                     let seq = String(format: "%03d", arguments: [i])
@@ -158,7 +160,7 @@ class InterfaceController: WKInterfaceController {
             if !isDone && tempDbl >= self.limitHigh {
                 // Load red from 0 to tempDbl or 100
                 
-                let imageIndex = Int((tempDbl - Double(self.limitHigh)) * Double(imageStep))
+                let imageIndex = getImageIndex(tempDbl - self.limitHigh)
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 for (var i=self.previousImageIndex;i<=imageMax;i++) {
                     let seq = String(format: "%03d", arguments: [i])
@@ -178,7 +180,7 @@ class InterfaceController: WKInterfaceController {
                 // Load read images from previousTemp to tempDbl or 0
                 // If to tempDbl, isDone = true
                 
-                let imageIndex = Int((tempDbl - Double(self.limitHigh)) * Double(imageStep))
+                let imageIndex = getImageIndex(tempDbl - self.limitHigh)
                 let imageMin = (tempDbl < self.limitHigh) ? 0 : imageIndex
                 for (var i=self.previousImageIndex;i>=imageMin;i--) {
                     let seq = String(format: "%03d", arguments: [i])
@@ -202,7 +204,7 @@ class InterfaceController: WKInterfaceController {
                 // Load green from previousTemp to tempDbl or 0
                 // If to tempDbl, isDone = true
                 
-                let imageIndex = Int((tempDbl - Double(self.limitLow)) * Double(imageStep))
+                let imageIndex = getImageIndex(tempDbl - self.limitLow)
                 let imageMin = (tempDbl < self.limitLow) ? 0 : imageIndex
                 for (var i=self.previousImageIndex;i>=imageMin;i--) {
                     let seq = String(format: "%03d", arguments: [i])
@@ -225,7 +227,7 @@ class InterfaceController: WKInterfaceController {
             if !isDone && tempDbl <= self.limitLow {
                 // Load blue from 0 to tempDbl or 100
                 
-                let imageIndex = Int((Double(self.limitLow) - tempDbl) * Double(imageStep))
+                let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 for (var i=self.previousImageIndex;i<=imageMax;i++) {
                     let seq = String(format: "%03d", arguments: [i])
