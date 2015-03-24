@@ -108,6 +108,16 @@ class InterfaceController: WKInterfaceController {
 
         var isDone = false
         var imageArray = [UIImage]()
+        
+        func appendImage(i: Int, imagePrefix: String) {
+            let seq = String(format: "%03d", arguments: [i])
+            let imageName = "\(imagePrefix)\(seq)"
+            let image = UIImage(named: imageName)
+            if let image = image {
+                imageArray.append(image)
+            }
+        }
+
         if tempDbl >= self.previousTemp { // Going Up
             if self.previousTemp < self.limitLow {
                 // Load blue from previousTemp to 0 or tempDbl
@@ -116,12 +126,7 @@ class InterfaceController: WKInterfaceController {
                 let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
                 let imageMax = imageIndex < 0 ? 0 : imageIndex
                 for (var i=self.previousImageIndex;i>=imageMax;i--) {
-                    let seq = String(format: "%03d", arguments: [i])
-                    let imageName = "\(self.lowImagePrefix)\(seq)"
-                    let image = UIImage(named: imageName)
-                    if let image = image {
-                        imageArray.append(image)
-                    }
+                    appendImage(i, self.lowImagePrefix)
                 }
                 
                 if imageMax > 0 {
@@ -140,12 +145,7 @@ class InterfaceController: WKInterfaceController {
                 let imageIndex = getImageIndex(tempDbl - self.limitLow)
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 for (var i=self.previousImageIndex;i<=imageMax;i++) {
-                    let seq = String(format: "%03d", arguments: [i])
-                    let imageName = "\(self.normalImagePrefix)\(seq)"
-                    let image = UIImage(named: imageName)
-                    if let image = image {
-                        imageArray.append(image)
-                    }
+                    appendImage(i, self.normalImagePrefix)
                 }
                 
                 if imageMax < 100 {
@@ -163,12 +163,7 @@ class InterfaceController: WKInterfaceController {
                 let imageIndex = getImageIndex(tempDbl - self.limitHigh)
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 for (var i=self.previousImageIndex;i<=imageMax;i++) {
-                    let seq = String(format: "%03d", arguments: [i])
-                    let imageName = "\(self.highImagePrefix)\(seq)"
-                    let image = UIImage(named: imageName)
-                    if let image = image {
-                        imageArray.append(image)
-                    }
+                    appendImage(i, self.highImagePrefix)
                 }
                 
                 self.previousImageIndex = imageIndex
@@ -183,12 +178,7 @@ class InterfaceController: WKInterfaceController {
                 let imageIndex = getImageIndex(tempDbl - self.limitHigh)
                 let imageMin = (tempDbl < self.limitHigh) ? 0 : imageIndex
                 for (var i=self.previousImageIndex;i>=imageMin;i--) {
-                    let seq = String(format: "%03d", arguments: [i])
-                    let imageName = "\(self.highImagePrefix)\(seq)"
-                    let image = UIImage(named: imageName)
-                    if let image = image {
-                        imageArray.append(image)
-                    }
+                    appendImage(i, self.highImagePrefix)
                 }
                 
                 if imageMin > 0 {
@@ -207,12 +197,7 @@ class InterfaceController: WKInterfaceController {
                 let imageIndex = getImageIndex(tempDbl - self.limitLow)
                 let imageMin = (tempDbl < self.limitLow) ? 0 : imageIndex
                 for (var i=self.previousImageIndex;i>=imageMin;i--) {
-                    let seq = String(format: "%03d", arguments: [i])
-                    let imageName = "\(self.normalImagePrefix)\(seq)"
-                    let image = UIImage(named: imageName)
-                    if let image = image {
-                        imageArray.append(image)
-                    }
+                    appendImage(i, self.normalImagePrefix)
                 }
                 
                 if imageMin > 0 {
@@ -230,12 +215,7 @@ class InterfaceController: WKInterfaceController {
                 let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 for (var i=self.previousImageIndex;i<=imageMax;i++) {
-                    let seq = String(format: "%03d", arguments: [i])
-                    let imageName = "\(self.lowImagePrefix)\(seq)"
-                    let image = UIImage(named: imageName)
-                    if let image = image {
-                        imageArray.append(image)
-                    }
+                    appendImage(i, self.lowImagePrefix)
                 }
                 
                 self.previousImageIndex = imageIndex
