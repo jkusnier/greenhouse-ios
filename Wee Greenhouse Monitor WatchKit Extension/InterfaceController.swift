@@ -109,12 +109,24 @@ class InterfaceController: WKInterfaceController {
         var isDone = false
         var imageArray = [UIImage]()
         
-        func appendImage(i: Int, imagePrefix: String) {
+        let appendImage = { (i: Int, imagePrefix: String) -> () in
             let seq = String(format: "%03d", arguments: [i])
             let imageName = "\(imagePrefix)\(seq)"
             let image = UIImage(named: imageName)
             if let image = image {
                 imageArray.append(image)
+            }
+        }
+        
+        let doLoop = { (startingAt: Int, stoppingAt: Int, goingUp: Bool, whileDoing: Int -> ()) -> () in
+            if (goingUp) {
+                for (var i=startingAt;i<=stoppingAt;i++) {
+                    whileDoing(i)
+                }
+            } else {
+                for (var i=startingAt;i>=stoppingAt;i--) {
+                    whileDoing(i)
+                }
             }
         }
 
@@ -125,9 +137,7 @@ class InterfaceController: WKInterfaceController {
                 
                 let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
                 let imageMax = imageIndex < 0 ? 0 : imageIndex
-                for (var i=self.previousImageIndex;i>=imageMax;i--) {
-                    appendImage(i, self.lowImagePrefix)
-                }
+                doLoop(self.previousImageIndex, imageMax, false, { i in appendImage(i, self.lowImagePrefix) })
                 
                 if imageMax > 0 {
                     isDone = true
@@ -144,9 +154,7 @@ class InterfaceController: WKInterfaceController {
                 
                 let imageIndex = getImageIndex(tempDbl - self.limitLow)
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
-                for (var i=self.previousImageIndex;i<=imageMax;i++) {
-                    appendImage(i, self.normalImagePrefix)
-                }
+                doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.normalImagePrefix) })
                 
                 if imageMax < 100 {
                     isDone = true
@@ -162,9 +170,7 @@ class InterfaceController: WKInterfaceController {
                 
                 let imageIndex = getImageIndex(tempDbl - self.limitHigh)
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
-                for (var i=self.previousImageIndex;i<=imageMax;i++) {
-                    appendImage(i, self.highImagePrefix)
-                }
+                doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.highImagePrefix) })
                 
                 self.previousImageIndex = imageIndex
                 
@@ -177,9 +183,7 @@ class InterfaceController: WKInterfaceController {
                 
                 let imageIndex = getImageIndex(tempDbl - self.limitHigh)
                 let imageMin = (tempDbl < self.limitHigh) ? 0 : imageIndex
-                for (var i=self.previousImageIndex;i>=imageMin;i--) {
-                    appendImage(i, self.highImagePrefix)
-                }
+                doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.highImagePrefix) })
                 
                 if imageMin > 0 {
                     isDone = true
@@ -196,9 +200,7 @@ class InterfaceController: WKInterfaceController {
                 
                 let imageIndex = getImageIndex(tempDbl - self.limitLow)
                 let imageMin = (tempDbl < self.limitLow) ? 0 : imageIndex
-                for (var i=self.previousImageIndex;i>=imageMin;i--) {
-                    appendImage(i, self.normalImagePrefix)
-                }
+                doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.normalImagePrefix) })
                 
                 if imageMin > 0 {
                     isDone = true
@@ -214,9 +216,7 @@ class InterfaceController: WKInterfaceController {
                 
                 let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
-                for (var i=self.previousImageIndex;i<=imageMax;i++) {
-                    appendImage(i, self.lowImagePrefix)
-                }
+                doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.lowImagePrefix) })
                 
                 self.previousImageIndex = imageIndex
                 
