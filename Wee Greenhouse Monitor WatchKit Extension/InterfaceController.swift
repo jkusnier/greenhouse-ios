@@ -46,6 +46,8 @@ class InterfaceController: WKInterfaceController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopTimer", name: UIApplicationWillResignActiveNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: UIApplicationWillEnterForegroundNotification, object: nil)
         
+        self.setTitle("Greenhouse")
+        
         // Configure interface objects here.
         updateTitle()
     }
