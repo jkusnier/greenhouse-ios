@@ -131,6 +131,15 @@ class InterfaceController: WKInterfaceController {
                 }
             }
         }
+        
+        let completeLoop = { (shouldComplete: Bool, truePrevIndex: Int, falsePrevIdex: Int) -> () in
+            if shouldComplete {
+                isDone = true
+                self.previousImageIndex = truePrevIndex
+            } else {
+                self.previousImageIndex = falsePrevIdex
+            }
+        }
 
         if tempDbl >= self.previousTemp { // Going Up
             if self.previousTemp < self.limitLow {
@@ -141,13 +150,7 @@ class InterfaceController: WKInterfaceController {
                 let imageMax = imageIndex < 0 ? 0 : imageIndex
                 doLoop(self.previousImageIndex, imageMax, false, { i in appendImage(i, self.lowImagePrefix) })
                 
-                if imageMax > 0 {
-                    isDone = true
-                    self.previousImageIndex = imageIndex
-                } else {
-                    self.previousImageIndex = 0
-                }
-                
+                completeLoop(imageMax > 0, imageIndex, 0)
                 println("Up -> Below Low")
             }
             if !isDone && self.previousTemp < self.limitHigh {
@@ -158,13 +161,7 @@ class InterfaceController: WKInterfaceController {
                 let imageMax = imageIndex > 100 ? 100 : imageIndex
                 doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.normalImagePrefix) })
                 
-                if imageMax < 100 {
-                    isDone = true
-                    self.previousImageIndex = imageIndex
-                } else {
-                    self.previousImageIndex = 0
-                }
-                
+                completeLoop(imageMax < 100, imageIndex, 0)
                 println("Up -> Normal")
             }
             if !isDone && tempDbl >= self.limitHigh {
@@ -175,7 +172,6 @@ class InterfaceController: WKInterfaceController {
                 doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.highImagePrefix) })
                 
                 self.previousImageIndex = imageIndex
-                
                 println("Up -> Above High")
             }
         } else { // Going Down
@@ -187,13 +183,7 @@ class InterfaceController: WKInterfaceController {
                 let imageMin = (tempDbl < self.limitHigh) ? 0 : imageIndex
                 doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.highImagePrefix) })
                 
-                if imageMin > 0 {
-                    isDone = true
-                    self.previousImageIndex = imageIndex
-                } else {
-                    self.previousImageIndex = 100
-                }
-                
+                completeLoop(imageMin > 0, imageIndex, 100)
                 println("Down -> Above High")
             }
             if !isDone && self.previousTemp > self.limitLow {
@@ -204,13 +194,7 @@ class InterfaceController: WKInterfaceController {
                 let imageMin = (tempDbl < self.limitLow) ? 0 : imageIndex
                 doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.normalImagePrefix) })
                 
-                if imageMin > 0 {
-                    isDone = true
-                    self.previousImageIndex = imageIndex
-                } else {
-                    self.previousImageIndex = 0
-                }
-                
+                completeLoop(imageMin > 0, imageIndex, 0)
                 println("Down -> Normal")
             }
             if !isDone && tempDbl <= self.limitLow {
@@ -221,7 +205,6 @@ class InterfaceController: WKInterfaceController {
                 doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.lowImagePrefix) })
                 
                 self.previousImageIndex = imageIndex
-                
                 println("Down -> Below Low")
             }
         }
