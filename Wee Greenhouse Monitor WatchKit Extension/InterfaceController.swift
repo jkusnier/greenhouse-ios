@@ -104,7 +104,7 @@ class InterfaceController: WKInterfaceController {
         }
         self.temperatureLabel.setText(tempString)
 
-        func getImageIndex(offset: Double) -> Int {
+        let getImageIndex = { (offset: Double) -> Int in
             return Int(offset * ((1 / (self.limitHigh - self.limitLow)) * 100))
         }
 
