@@ -92,18 +92,9 @@
             <objects>
                 <controller id="2Oa-s4-yg9" customClass="HumidityViewController" customModule="Wee_Greenhouse_Monitor_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Greenhouse" id="25f-kS-np7">
-                            <color key="textColor" red="0.73725490199999999" green="0.8862745098" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <label alignment="center" verticalAlignment="center" text="47%" textAlignment="center" id="oVz-WW-N5g">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="40"/>
                         </label>
-                        <separator alignment="left" id="pEv-dy-VzM">
-                            <color key="color" red="0.73725490199999999" green="0.8862745098" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
-                        <label alignment="center" verticalAlignment="center" text="47%" id="oVz-WW-N5g">
-                            <fontDescription key="font" type="system" weight="thin" pointSize="64"/>
-                        </label>
-                        <separator alignment="left" verticalAlignment="bottom" id="vaV-Gg-IwS">
-                            <color key="color" red="0.73725490199999999" green="0.8862745098" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
-                        </separator>
                         <label alignment="center" verticalAlignment="bottom" text="Label" id="EIG-vd-J9K">
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
