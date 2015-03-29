@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import GreenhouseData
 
 class InterfaceController: WKInterfaceController {
 
@@ -110,6 +110,7 @@ class InterfaceController: WKInterfaceController {
 
         var isDone = false
         var imageArray = [UIImage]()
+        DialImages.temperatureChangeAnimation(123.0, stoppingTemp: 123.0)
         
         let appendImage = { (i: Int, imagePrefix: String) -> () in
             let seq = String(format: "%03d", arguments: [i])
