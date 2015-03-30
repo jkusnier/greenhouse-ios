@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
+		9628DEE11AC8CE0500748171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9628DEE01AC8CE0500748171 /* Images.xcassets */; };
+		9628DEE31AC8CE9800748171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9628DEE21AC8CE9800748171 /* Images.xcassets */; };
 		962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */; };
 		962F370C1AC8AAF100EBA5B2 /* GreenhouseData.h in Headers */ = {isa = PBXBuildFile; fileRef = 962F370B1AC8AAF100EBA5B2 /* GreenhouseData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		962F37121AC8AAF100EBA5B2 /* GreenhouseData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */; };
@@ -33,7 +35,6 @@
 		96E811CD1A90D9F10089FE5F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 96E811CC1A90D9F10089FE5F /* Settings.bundle */; };
 		96FF30D91AAD10AA00FC1B1D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */; };
 		96FF30DB1AAD10AA00FC1B1D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */; };
-		96FF30DD1AAD10AA00FC1B1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */; };
 		96FF30E11AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */; };
 		96FF30E91AAD10AA00FC1B1D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30E71AAD10AA00FC1B1D /* Interface.storyboard */; };
 		96FF30EB1AAD10AA00FC1B1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30EA1AAD10AA00FC1B1D /* Images.xcassets */; };
@@ -129,6 +130,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9628DEE01AC8CE0500748171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9628DEE21AC8CE9800748171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GreenhouseData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		962F370A1AC8AAF100EBA5B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,7 +159,6 @@
 		96FF30D71AAD10AA00FC1B1D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wee Greenhouse Monitor WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FF30E61AAD10AA00FC1B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96FF30E81AAD10AA00FC1B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				962F370B1AC8AAF100EBA5B2 /* GreenhouseData.h */,
 				962F37271AC8AAFF00EBA5B2 /* DialImages.swift */,
+				9628DEE01AC8CE0500748171 /* Images.xcassets */,
 				962F37091AC8AAF100EBA5B2 /* Supporting Files */,
 			);
 			path = GreenhouseData;
@@ -314,7 +317,7 @@
 				96FF30D81AAD10AA00FC1B1D /* InterfaceController.swift */,
 				967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */,
 				96FF30DA1AAD10AA00FC1B1D /* NotificationController.swift */,
-				96FF30DC1AAD10AA00FC1B1D /* Images.xcassets */,
+				9628DEE21AC8CE9800748171 /* Images.xcassets */,
 				96FF30D51AAD10AA00FC1B1D /* Supporting Files */,
 			);
 			path = "Wee Greenhouse Monitor WatchKit Extension";
@@ -535,6 +538,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9628DEE11AC8CE0500748171 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FF30E11AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app in Resources */,
-				96FF30DD1AAD10AA00FC1B1D /* Images.xcassets in Resources */,
+				9628DEE31AC8CE9800748171 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,6 +1028,7 @@
 				962F37221AC8AAF100EBA5B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		962F37261AC8AAF100EBA5B2 /* Build configuration list for PBXNativeTarget "GreenhouseDataTests" */ = {
 			isa = XCConfigurationList;
@@ -1032,6 +1037,7 @@
 				962F37241AC8AAF100EBA5B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96CDEC3919F9CB1700736E4C /* Build configuration list for PBXProject "Wee Greenhouse Monitor" */ = {
 			isa = XCConfigurationList;
