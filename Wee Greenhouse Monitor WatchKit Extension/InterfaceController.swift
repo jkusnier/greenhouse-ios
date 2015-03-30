@@ -33,6 +33,8 @@ class InterfaceController: WKInterfaceController {
 
     var previousTemp : Double = 0
     var previousImageIndex = 0
+    
+    lazy var di: DialImages = DialImages(limitLow: self.limitLow, limitHigh: self.limitHigh)
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -104,112 +106,7 @@ class InterfaceController: WKInterfaceController {
         }
         self.temperatureLabel.setText(tempString)
 
-        let getImageIndex = { (offset: Double) -> Int in
-            return Int(offset * ((1 / (self.limitHigh - self.limitLow)) * 100))
-        }
-
-        var isDone = false
-        var imageArray = [UIImage]()
-        DialImages.temperatureChangeAnimation(123.0, stoppingTemp: 123.0)
-        
-        let appendImage = { (i: Int, imagePrefix: String) -> () in
-            let seq = String(format: "%03d", arguments: [i])
-            let imageName = "\(imagePrefix)\(seq)"
-            let image = UIImage(named: imageName)
-            if let image = image {
-                imageArray.append(image)
-            }
-        }
-        
-        let doLoop = { (startingAt: Int, stoppingAt: Int, goingUp: Bool, whileDoing: Int -> ()) -> () in
-            if (goingUp) {
-                for (var i=startingAt;i<=stoppingAt;i++) {
-                    whileDoing(i)
-                }
-            } else {
-                for (var i=startingAt;i>=stoppingAt;i--) {
-                    whileDoing(i)
-                }
-            }
-        }
-        
-        let completeLoop = { (shouldComplete: Bool, truePrevIndex: Int, falsePrevIdex: Int) -> () in
-            if shouldComplete {
-                isDone = true
-                self.previousImageIndex = truePrevIndex
-            } else {
-                self.previousImageIndex = falsePrevIdex
-            }
-        }
-
-        if tempDbl >= self.previousTemp { // Going Up
-            if self.previousTemp < self.limitLow {
-                // Load blue from previousTemp to 0 or tempDbl
-                // If to tempDbl, isDone = true
-                
-                let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
-                let imageMax = imageIndex < 0 ? 0 : imageIndex
-                doLoop(self.previousImageIndex, imageMax, false, { i in appendImage(i, self.lowImagePrefix) })
-                
-                completeLoop(imageMax > 0, imageIndex, 0)
-                println("Up -> Below Low")
-            }
-            if !isDone && self.previousTemp < self.limitHigh {
-                // Load green from 0 to tempDbl or 100
-                // If to tempDbl, isDone = true
-                
-                let imageIndex = getImageIndex(tempDbl - self.limitLow)
-                let imageMax = imageIndex > 100 ? 100 : imageIndex
-                doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.normalImagePrefix) })
-                
-                completeLoop(imageMax < 100, imageIndex, 0)
-                println("Up -> Normal")
-            }
-            if !isDone && tempDbl >= self.limitHigh {
-                // Load red from 0 to tempDbl or 100
-                
-                let imageIndex = getImageIndex(tempDbl - self.limitHigh)
-                let imageMax = imageIndex > 100 ? 100 : imageIndex
-                doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.highImagePrefix) })
-                
-                self.previousImageIndex = imageIndex
-                println("Up -> Above High")
-            }
-        } else { // Going Down
-            if self.previousTemp >= self.limitHigh {
-                // Load read images from previousTemp to tempDbl or 0
-                // If to tempDbl, isDone = true
-                
-                let imageIndex = getImageIndex(tempDbl - self.limitHigh)
-                let imageMin = (tempDbl < self.limitHigh) ? 0 : imageIndex
-                doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.highImagePrefix) })
-                
-                completeLoop(imageMin > 0, imageIndex, 100)
-                println("Down -> Above High")
-            }
-            if !isDone && self.previousTemp > self.limitLow {
-                // Load green from previousTemp to tempDbl or 0
-                // If to tempDbl, isDone = true
-                
-                let imageIndex = getImageIndex(tempDbl - self.limitLow)
-                let imageMin = (tempDbl < self.limitLow) ? 0 : imageIndex
-                doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.normalImagePrefix) })
-                
-                completeLoop(imageMin > 0, imageIndex, 0)
-                println("Down -> Normal")
-            }
-            if !isDone && tempDbl <= self.limitLow {
-                // Load blue from 0 to tempDbl or 100
-                
-                let imageIndex = getImageIndex(self.limitLow - tempDbl) + 1
-                let imageMax = imageIndex > 100 ? 100 : imageIndex
-                doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.lowImagePrefix) })
-                
-                self.previousImageIndex = imageIndex
-                println("Down -> Below Low")
-            }
-        }
-        
+        var imageArray = self.di.temperatureChangeAnimation(self.previousTemp, stoppingTemp: tempDbl)
         self.previousTemp = tempDbl
         
         let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
