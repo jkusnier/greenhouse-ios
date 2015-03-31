@@ -32,7 +32,6 @@ class InterfaceController: WKInterfaceController {
     let highImagePrefix = "red-dial-outer-"
 
     var previousTemp : Double = 0
-    var previousImageIndex = 0
     
     lazy var di: DialImages = DialImages(limitLow: self.limitLow, limitHigh: self.limitHigh)
 
