@@ -92,9 +92,13 @@
             <objects>
                 <controller id="2Oa-s4-yg9" customClass="HumidityViewController" customModule="Wee_Greenhouse_Monitor_WatchKit_Extension">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="47%" textAlignment="center" id="oVz-WW-N5g">
-                            <fontDescription key="font" type="system" weight="thin" pointSize="40"/>
-                        </label>
+                        <group width="116" height="116" alignment="center" verticalAlignment="center" backgroundImage="green-dial-outer-001" contentMode="scaleAspectFit" id="023-zZ-7pH">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="47%" textAlignment="center" id="oVz-WW-N5g">
+                                    <fontDescription key="font" type="system" weight="thin" pointSize="40"/>
+                                </label>
+                            </items>
+                        </group>
                         <label alignment="center" verticalAlignment="bottom" text="Label" id="EIG-vd-J9K">
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
