@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="humidityLabel" destination="oVz-WW-N5g" id="dqR-m4-5VJ"/>
                         <outlet property="lastUpdated" destination="EIG-vd-J9K" id="tgm-2U-dWB"/>
+                        <outlet property="mainGroup" destination="023-zZ-7pH" id="bZF-Yj-iim"/>
                     </connections>
                 </controller>
             </objects>

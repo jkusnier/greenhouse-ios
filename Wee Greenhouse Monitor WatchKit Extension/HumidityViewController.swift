@@ -9,7 +9,7 @@
 
 import WatchKit
 import Foundation
-
+import GreenhouseData
 
 class HumidityViewController: WKInterfaceController {
     
@@ -21,12 +21,16 @@ class HumidityViewController: WKInterfaceController {
     
     let timeInterval:NSTimeInterval = 60 as NSTimeInterval
     
-    var limitLow: Double = 38
-    var limitHigh: Double = 85
+    var limitLow: Double = 0
+    var limitHigh: Double = 100
     
     let limitLowColor = UIColor(red: 132/255, green: 183/255, blue: 255/255, alpha: 1) //UIColor.blueColor()
     let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
     let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
+    
+    var previousHumidity : Double = 0
+    
+    lazy var di: DialImages = DialImages(limitLow: self.limitLow, limitHigh: self.limitHigh)
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -58,6 +62,7 @@ class HumidityViewController: WKInterfaceController {
     
     func updateTitle() {
         var tempString = "--°"
+        var humidityDbl = 0.0
         var humidityString = "---%"
         if let envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment") {
             let jsonData = NSData(contentsOfURL: envUrl)
@@ -69,6 +74,7 @@ class HumidityViewController: WKInterfaceController {
                 if (error == nil) {
                     tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
                     setBackgroundColor(jsonDict["fahrenheit"] as Double)
+                    humidityDbl = jsonDict["humidity"] as Double
                     humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
                     if let publishedAt = jsonDict["published_at"] as? String {
                         
@@ -90,8 +96,17 @@ class HumidityViewController: WKInterfaceController {
                 }
             }
         }
-
+        
         humidityLabel.setText(humidityString)
+        
+        var imageArray = self.di.temperatureChangeAnimation(self.previousHumidity, stoppingTemp: humidityDbl)
+        self.previousHumidity = humidityDbl
+        
+        let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
+        
+        self.mainGroup.setBackgroundImage(dialImage)
+        let tInterval = imageArray.count > 10 ? 3.0 : 1.0
+        self.mainGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: imageArray.count), duration: tInterval, repeatCount: 1)
     }
     
     func setBackgroundColor(temperature: Double) {
