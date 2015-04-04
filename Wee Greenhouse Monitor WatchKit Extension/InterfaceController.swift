@@ -70,7 +70,6 @@ class InterfaceController: WKInterfaceController {
     func updateTitle() {
         var tempString = "--°"
         var tempDbl = 0.0
-//        var humidityString = "---%"
         
         let ghApi = GreenhouseAPI()
         ghApi.refreshData("50ff6c065067545628550887",
@@ -81,11 +80,7 @@ class InterfaceController: WKInterfaceController {
                     tempString = String(format: "%.1f°", temperature)
                     self.setBackgroundColor(temperature)
                 }
-                
-//                if let humidity = ghApi.humidity() {
-//                    humidityString = String(format: "%d%%", humidity)
-//                }
-                
+
                 if let publishedAt = ghApi.publishedAt() {
                         let dateFormatter = NSDateFormatter()
                         dateFormatter.dateStyle = .ShortStyle
@@ -108,9 +103,6 @@ class InterfaceController: WKInterfaceController {
         self.mainGroup.setBackgroundImage(dialImage)
         let tInterval = imageArray.count > 10 ? 3.0 : 1.0
         self.mainGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: imageArray.count), duration: tInterval, repeatCount: 1)
-
-//        humidityLabel.text = humidityString
-        
     }
     
     func setBackgroundColor(temperature: Double) {
