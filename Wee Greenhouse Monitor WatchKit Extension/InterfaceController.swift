@@ -70,39 +70,34 @@ class InterfaceController: WKInterfaceController {
     func updateTitle() {
         var tempString = "--°"
         var tempDbl = 0.0
-        var humidityString = "---%"
-        if let envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment") {
-            let jsonData = NSData(contentsOfURL: envUrl)
-            if let jsonData = jsonData? {
-                var error: NSError?
-                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
+//        var humidityString = "---%"
+        
+        let ghApi = GreenhouseAPI()
+        ghApi.refreshData("50ff6c065067545628550887",
+            failure: { error in
+            }, success: {
+                if let temperature = ghApi.temperature() {
+                    tempDbl = temperature
+                    tempString = String(format: "%.1f°", temperature)
+                    self.setBackgroundColor(temperature)
+                }
                 
+//                if let humidity = ghApi.humidity() {
+//                    humidityString = String(format: "%d%%", humidity)
+//                }
                 
-                if (error == nil) {
-                    tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
-                    tempDbl = jsonDict["fahrenheit"] as Double
-                    setBackgroundColor(jsonDict["fahrenheit"] as Double)
-                    humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
-                    if let publishedAt = jsonDict["published_at"] as? String {
-                        
+                if let publishedAt = ghApi.publishedAt() {
                         let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                        let date = dateFormatter.dateFromString(publishedAt)
+                        dateFormatter.dateStyle = .ShortStyle
+                        dateFormatter.timeStyle = .ShortStyle
+                        dateFormatter.doesRelativeDateFormatting = true
                         
-                        if let date = date {
-                            
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateStyle = .ShortStyle
-                            dateFormatter.timeStyle = .ShortStyle
-                            dateFormatter.doesRelativeDateFormatting = true
-
-                            let dateStr = dateFormatter.stringFromDate(date)
-                            lastUpdated.setText(dateStr)
-                        }
-                    }
+                        let dateStr = dateFormatter.stringFromDate(publishedAt)
+                        self.lastUpdated.setText(dateStr)
                 }
             }
-        }
+        )
+        
         self.temperatureLabel.setText(tempString)
 
         var imageArray = self.di.temperatureChangeAnimation(self.previousTemp, stoppingTemp: tempDbl)
