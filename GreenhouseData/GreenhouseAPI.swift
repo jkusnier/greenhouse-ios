@@ -14,6 +14,8 @@ public class GreenhouseAPI {
     var _humidity: Int?
     var _publishedAt: NSDate?
     
+    public init() {}
+    
     public func refreshData(deviceId: String, failure fail: (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
         if let envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/\(deviceId)/environment") {
             let jsonData = NSData(contentsOfURL: envUrl)
