@@ -61,42 +61,33 @@ class HumidityViewController: WKInterfaceController {
     }
     
     func updateTitle() {
-        var tempString = "--°"
         var humidityDbl = 0.0
         var humidityString = "---%"
-        if let envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/50ff6c065067545628550887/environment") {
-            let jsonData = NSData(contentsOfURL: envUrl)
-            if let jsonData = jsonData? {
-                var error: NSError?
-                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
+        
+        let ghApi = GreenhouseAPI()
+        ghApi.refreshData("50ff6c065067545628550887",
+            failure: { error in
+            }, success: {
+                if let temperature = ghApi.temperature() {
+                    self.setBackgroundColor(temperature)
+                }
                 
+                if let humidity = ghApi.humidity() {
+                    humidityDbl = Double(humidity)
+                    humidityString = String(format: "%d%%", humidity)
+                }
                 
-                if (error == nil) {
-                    tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
-                    setBackgroundColor(jsonDict["fahrenheit"] as Double)
-                    humidityDbl = jsonDict["humidity"] as Double
-                    humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
-                    if let publishedAt = jsonDict["published_at"] as? String {
-                        
-                        let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                        let date = dateFormatter.dateFromString(publishedAt)
-                        
-                        if let date = date {
-                            
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateStyle = .ShortStyle
-                            dateFormatter.timeStyle = .ShortStyle
-                            dateFormatter.doesRelativeDateFormatting = true
-                            
-                            let dateStr = dateFormatter.stringFromDate(date)
-                            lastUpdated.setText(dateStr)
-                        }
-                    }
+                if let publishedAt = ghApi.publishedAt() {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateStyle = .ShortStyle
+                    dateFormatter.timeStyle = .ShortStyle
+                    dateFormatter.doesRelativeDateFormatting = true
+                    
+                    let dateStr = dateFormatter.stringFromDate(publishedAt)
+                    self.lastUpdated.setText(dateStr)
                 }
             }
-        }
-        
+        )
         humidityLabel.setText(humidityString)
         
         var imageArray = self.di.temperatureChangeAnimation(self.previousHumidity, stoppingTemp: humidityDbl)
