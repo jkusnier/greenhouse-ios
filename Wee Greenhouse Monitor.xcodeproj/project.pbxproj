@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
+		960DA6211AD350CD00A33A1D /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960DA6201AD350CD00A33A1D /* NSDateExtension.swift */; };
 		9628DEE11AC8CE0500748171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9628DEE01AC8CE0500748171 /* Images.xcassets */; };
 		9628DEE31AC8CE9800748171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9628DEE21AC8CE9800748171 /* Images.xcassets */; };
 		962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */; };
@@ -131,6 +132,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		960DA6201AD350CD00A33A1D /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		9628DEE01AC8CE0500748171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9628DEE21AC8CE9800748171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
@@ -212,10 +214,11 @@
 		962F37081AC8AAF100EBA5B2 /* GreenhouseData */ = {
 			isa = PBXGroup;
 			children = (
-				962F370B1AC8AAF100EBA5B2 /* GreenhouseData.h */,
 				962F37271AC8AAFF00EBA5B2 /* DialImages.swift */,
 				965E3BDF1ACE12790013CD4A /* GreenhouseAPI.swift */,
+				962F370B1AC8AAF100EBA5B2 /* GreenhouseData.h */,
 				9628DEE01AC8CE0500748171 /* Images.xcassets */,
+				960DA6201AD350CD00A33A1D /* NSDateExtension.swift */,
 				962F37091AC8AAF100EBA5B2 /* Supporting Files */,
 			);
 			path = GreenhouseData;
@@ -612,6 +615,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960DA6211AD350CD00A33A1D /* NSDateExtension.swift in Sources */,
 				962F37281AC8AAFF00EBA5B2 /* DialImages.swift in Sources */,
 				965E3BE01ACE12790013CD4A /* GreenhouseAPI.swift in Sources */,
 			);

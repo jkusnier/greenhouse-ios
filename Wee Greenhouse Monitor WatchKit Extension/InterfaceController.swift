@@ -82,13 +82,7 @@ class InterfaceController: WKInterfaceController {
                 }
 
                 if let publishedAt = ghApi.publishedAt() {
-                        let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateStyle = .ShortStyle
-                        dateFormatter.timeStyle = .ShortStyle
-                        dateFormatter.doesRelativeDateFormatting = true
-                        
-                        let dateStr = dateFormatter.stringFromDate(publishedAt)
-                        self.lastUpdated.setText(dateStr)
+                    self.lastUpdated.setText(publishedAt.relativeDateFormat())
                 }
             }
         )
