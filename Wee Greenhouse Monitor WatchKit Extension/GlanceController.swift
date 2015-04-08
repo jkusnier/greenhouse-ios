@@ -22,6 +22,8 @@ class GlanceController: WKInterfaceController {
     let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
     let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
     
+    var deviceId = "50ff6c065067545628550887"
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -43,7 +45,7 @@ class GlanceController: WKInterfaceController {
         var tempString = "--°"
 
         let ghApi = GreenhouseAPI()
-        ghApi.refreshData("50ff6c065067545628550887",
+        ghApi.refreshData(self.deviceId,
             failure: { error in
             }, success: {
                 if let temperature = ghApi.temperature() {

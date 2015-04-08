@@ -32,6 +32,8 @@ class HumidityViewController: WKInterfaceController {
     
     lazy var di: DialImages = DialImages(limitLow: self.limitLow, limitHigh: self.limitHigh)
     
+    var deviceId = "50ff6c065067545628550887"
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -65,7 +67,7 @@ class HumidityViewController: WKInterfaceController {
         var humidityString = "---%"
         
         let ghApi = GreenhouseAPI()
-        ghApi.refreshData("50ff6c065067545628550887",
+        ghApi.refreshData(self.deviceId,
             failure: { error in
             }, success: {
                 if let temperature = ghApi.temperature() {

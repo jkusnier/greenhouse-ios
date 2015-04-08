@@ -34,6 +34,8 @@ class InterfaceController: WKInterfaceController {
     var previousTemp : Double = 0
     
     lazy var di: DialImages = DialImages(limitLow: self.limitLow, limitHigh: self.limitHigh)
+    
+    var deviceId = "50ff6c065067545628550887"
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -72,7 +74,7 @@ class InterfaceController: WKInterfaceController {
         var tempDbl = 0.0
         
         let ghApi = GreenhouseAPI()
-        ghApi.refreshData("50ff6c065067545628550887",
+        ghApi.refreshData(self.deviceId,
             failure: { error in
             }, success: {
                 if let temperature = ghApi.temperature() {
