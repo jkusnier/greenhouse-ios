@@ -18,7 +18,7 @@ class greenhouse_iosTests: XCTestCase {
         
         var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: self.dynamicType))
         
-        vc = storyboard.instantiateViewControllerWithIdentifier("mainView") as ViewController
+        vc = storyboard.instantiateViewControllerWithIdentifier("mainView") as! ViewController
         XCTAssertNotNil(vc, "Test Not Configured Properly")
         vc.loadView()
         
