@@ -21,27 +21,32 @@ public class GreenhouseAPI {
             let jsonData = NSData(contentsOfURL: envUrl)
             if let jsonData = jsonData {
                 var error: NSError?
-                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
+                if let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as? NSDictionary {
                 
-                if (error == nil) {
-                    self._temperature = jsonDict["fahrenheit"] as? Double
-                    self._humidity = jsonDict["humidity"] as? Int
-                    
-                    if let publishedAt = jsonDict["published_at"] as? String {
+                    if (error == nil) {
+                        if let temperature = jsonDict["fahrenheit"] as? Double {
+                            self._temperature = temperature
+                        }
+                        if let humidity = jsonDict["humidity"] as? Int {
+                            self._humidity = humidity
+                        }
                         
-                        let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                        self._publishedAt = dateFormatter.dateFromString(publishedAt)
+                        if let publishedAt = jsonDict["published_at"] as? String {
+                            
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            self._publishedAt = dateFormatter.dateFromString(publishedAt)
+                        } else {
+                            self._publishedAt = nil
+                        }
+                        
+                        if let succeed = succeed {
+                            succeed()
+                        }
                     } else {
-                        self._publishedAt = nil
-                    }
-                    
-                    if let succeed = succeed {
-                        succeed()
-                    }
-                } else {
-                    if let fail = fail {
-                        fail(error)
+                        if let fail = fail {
+                            fail(error)
+                        }
                     }
                 }
             }
