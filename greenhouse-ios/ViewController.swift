@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GreenhouseData
 
 private var defaultsContext = 0
 
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     
     var allLabels: [UILabel]?
     
-    var envUrl:NSURL?
+    var deviceId = "50ff6c065067545628550887"
     let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/weather/STATION-HERE/fahrenheit/now")!
     var mainTimer:NSTimer?
     
@@ -89,7 +90,7 @@ class ViewController: UIViewController {
             }
             
             if let deviceId = defaults.stringForKey("deviceId") {
-                self.envUrl = NSURL(string: "http://api.weecode.com/greenhouse/v1/devices/\(deviceId)/environment")!
+                self.deviceId = deviceId
                 updateTitle()
             } else {
                 println("deviceId not found")
@@ -114,21 +115,26 @@ class ViewController: UIViewController {
     func updateTitle() {
         var tempString = "--°"
         var humidityString = "---%"
-        if let envUrl = self.envUrl {
-            let jsonData = NSData(contentsOfURL: envUrl)
-            if let jsonData = jsonData? {
-                var error: NSError?
-                let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSDictionary
+        
+        let ghApi = GreenhouseAPI()
+        ghApi.refreshData(self.deviceId,
+            failure: { error in
+            }, success: {
+                if let temperature = ghApi.temperature() {
+                    tempString = String(format: "%.1f°", temperature)
+                    self.setBackgroundColor(temperature)
+                }
                 
+                if let humidity = ghApi.humidity() {
+                    humidityString = String(format: "%d%%", humidity)
+                }
                 
-                if (error == nil) {
-                    tempString = String(format: "%.1f°", jsonDict["fahrenheit"] as Double)
-                    setBackgroundColor(jsonDict["fahrenheit"] as Double)
-                    humidityString = String(format: "%d%%", jsonDict["humidity"] as Int)
-                    lastUpdatedLabel.text = NSDate(dateString: jsonDict["published_at"] as String).localFormat()
+                if let publishedAt = ghApi.publishedAt() {
+                    self.lastUpdatedLabel.text = publishedAt.relativeDateFormat()
                 }
             }
-        }
+        )
+
         temperatureLabel.text = tempString
         humidityLabel.text = humidityString
         
