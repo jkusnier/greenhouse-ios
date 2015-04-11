@@ -134,13 +134,12 @@ class ViewController: UIViewController {
         
         var outsideTempString = "--°"
         let jsonData2 = NSData(contentsOfURL: outsideUrl)
-        if let jsonData2 = jsonData2? {
+        if let jsonData2 = jsonData2 {
             var error: NSError?
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2, options: nil, error: &error) as NSDictionary
-            
-            
-            if (error == nil) {
-                outsideTempString = String(format: "%.1f°", jsonDict["temp_f"] as Double)
+            if let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2, options: nil, error: &error) as? NSDictionary {
+                if (error == nil) {
+                    outsideTempString = String(format: "%.1f°", jsonDict["temp_f"] as! Double)
+                }
             }
         }
         
