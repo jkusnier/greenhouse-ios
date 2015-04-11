@@ -35,7 +35,7 @@ public class DialImages {
         let appendImage = { (i: Int, imagePrefix: String) -> () in
             let seq = String(format: "%03d", arguments: [i])
             let imageName = "\(imagePrefix)\(seq)"
-            let image = UIImage(named: imageName)
+            let image = UIImage(named: imageName, inBundle: NSBundle(forClass: DialImages.self), compatibleWithTraitCollection: nil)
             if let image = image {
                 imageArray.append(image)
             }
