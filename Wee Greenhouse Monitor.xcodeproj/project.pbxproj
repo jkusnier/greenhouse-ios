@@ -17,7 +17,6 @@
 		962F371B1AC8AAF100EBA5B2 /* GreenhouseDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F371A1AC8AAF100EBA5B2 /* GreenhouseDataTests.swift */; };
 		962F371E1AC8AAF100EBA5B2 /* GreenhouseData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */; };
 		962F37281AC8AAFF00EBA5B2 /* DialImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F37271AC8AAFF00EBA5B2 /* DialImages.swift */; };
-		962F37291AC8AB2200EBA5B2 /* GreenhouseData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */; };
 		965E3BE01ACE12790013CD4A /* GreenhouseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E3BDF1ACE12790013CD4A /* GreenhouseAPI.swift */; };
 		967862F91AA24BFC004AB4C0 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		967C2B551AB4C7F600E1E3BE /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */; };
@@ -200,7 +199,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962F37291AC8AB2200EBA5B2 /* GreenhouseData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
