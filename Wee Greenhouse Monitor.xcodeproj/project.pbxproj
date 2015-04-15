@@ -18,6 +18,7 @@
 		962F371E1AC8AAF100EBA5B2 /* GreenhouseData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */; };
 		962F37281AC8AAFF00EBA5B2 /* DialImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F37271AC8AAFF00EBA5B2 /* DialImages.swift */; };
 		965E3BE01ACE12790013CD4A /* GreenhouseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E3BDF1ACE12790013CD4A /* GreenhouseAPI.swift */; };
+		966A2C811ADDE7BA0029759F /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A2C801ADDE7BA0029759F /* WeatherAPI.swift */; };
 		967862F91AA24BFC004AB4C0 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		967C2B551AB4C7F600E1E3BE /* HumidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */; };
 		9692B5D51A39BE1F00C7BC0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDEC4319F9CB1700736E4C /* AppDelegate.swift */; };
@@ -139,6 +140,7 @@
 		962F371A1AC8AAF100EBA5B2 /* GreenhouseDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseDataTests.swift; sourceTree = "<group>"; };
 		962F37271AC8AAFF00EBA5B2 /* DialImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialImages.swift; sourceTree = "<group>"; };
 		965E3BDF1ACE12790013CD4A /* GreenhouseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenhouseAPI.swift; sourceTree = "<group>"; };
+		966A2C801ADDE7BA0029759F /* WeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceIdViewController.swift; sourceTree = "<group>"; };
 		967C2B541AB4C7F600E1E3BE /* HumidityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumidityViewController.swift; sourceTree = "<group>"; };
 		96CDEC3E19F9CB1700736E4C /* Wee Greenhouse Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wee Greenhouse Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +216,7 @@
 				9628DEE01AC8CE0500748171 /* Images.xcassets */,
 				960DA6201AD350CD00A33A1D /* NSDateExtension.swift */,
 				962F37091AC8AAF100EBA5B2 /* Supporting Files */,
+				966A2C801ADDE7BA0029759F /* WeatherAPI.swift */,
 			);
 			path = GreenhouseData;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				960DA6211AD350CD00A33A1D /* NSDateExtension.swift in Sources */,
+				966A2C811ADDE7BA0029759F /* WeatherAPI.swift in Sources */,
 				962F37281AC8AAFF00EBA5B2 /* DialImages.swift in Sources */,
 				965E3BE01ACE12790013CD4A /* GreenhouseAPI.swift in Sources */,
 			);
