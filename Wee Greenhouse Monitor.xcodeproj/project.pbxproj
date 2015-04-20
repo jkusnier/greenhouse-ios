@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		960913F91AA283F9000B3532 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
 		960DA6211AD350CD00A33A1D /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960DA6201AD350CD00A33A1D /* NSDateExtension.swift */; };
+		961693E01AE444750006ECB1 /* Wee Greenhouse Monitor WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */; };
+		961693E31AE4448F0006ECB1 /* Wee Greenhouse Monitor WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 96FF30E01AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App.app */; };
+		961693E51AE444960006ECB1 /* GreenhouseData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9628DEE11AC8CE0500748171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9628DEE01AC8CE0500748171 /* Images.xcassets */; };
 		9628DEE31AC8CE9800748171 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9628DEE21AC8CE9800748171 /* Images.xcassets */; };
 		962BE6A01AAFCDFC00CB0CA1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */; };
@@ -42,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		961693E11AE444750006ECB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96CDEC3619F9CB1700736E4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96FF30DF1AAD10AA00FC1B1D;
+			remoteInfo = "Wee Greenhouse Monitor WatchKit App";
+		};
 		962F37131AC8AAF100EBA5B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96CDEC3619F9CB1700736E4C /* Project object */;
@@ -100,6 +110,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				961693E51AE444960006ECB1 /* GreenhouseData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +431,7 @@
 			dependencies = (
 				96FF30ED1AAD10AA00FC1B1D /* PBXTargetDependency */,
 				962F371D1AC8AAF100EBA5B2 /* PBXTargetDependency */,
+				961693E21AE444750006ECB1 /* PBXTargetDependency */,
 			);
 			name = "Wee Greenhouse Monitor";
 			productName = "greenhouse-ios";
@@ -559,7 +571,9 @@
 			files = (
 				96E811CD1A90D9F10089FE5F /* Settings.bundle in Resources */,
 				96CDEC4919F9CB1700736E4C /* Main.storyboard in Resources */,
+				961693E31AE4448F0006ECB1 /* Wee Greenhouse Monitor WatchKit App.app in Resources */,
 				96CDEC4E19F9CB1700736E4C /* LaunchScreen.xib in Resources */,
+				961693E01AE444750006ECB1 /* Wee Greenhouse Monitor WatchKit App.app in Resources */,
 				96CDEC4B19F9CB1700736E4C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,6 +679,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		961693E21AE444750006ECB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96FF30DF1AAD10AA00FC1B1D /* Wee Greenhouse Monitor WatchKit App */;
+			targetProxy = 961693E11AE444750006ECB1 /* PBXContainerItemProxy */;
+		};
 		962F37141AC8AAF100EBA5B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 962F37061AC8AAF100EBA5B2 /* GreenhouseData */;
@@ -972,6 +991,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -992,6 +1012,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				IBSC_MODULE = Wee_Greenhouse_Monitor_WatchKit_Extension;
