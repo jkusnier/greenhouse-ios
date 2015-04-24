@@ -32,10 +32,7 @@ public class GreenhouseAPI {
                         }
                         
                         if let publishedAt = jsonDict["published_at"] as? String {
-                            
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                            self._publishedAt = dateFormatter.dateFromString(publishedAt)
+                            self._publishedAt = NSDate(dateString: publishedAt)
                         } else {
                             self._publishedAt = nil
                         }
