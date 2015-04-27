@@ -34,6 +34,11 @@ class ViewController: UIViewController {
     let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
     let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
     
+    var previousTemp : Double = 0
+
+    lazy var di: DialImages = DialImages(limitLow: self.limitLow, limitHigh: self.limitHigh)
+    
+    @IBOutlet weak var dialImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -115,12 +120,14 @@ class ViewController: UIViewController {
     func updateTitle() {
         var tempString = "--°"
         var humidityString = "---%"
+        var tempDbl = 0.0
         
         let ghApi = GreenhouseAPI()
         ghApi.refreshData(self.deviceId,
             failure: { error in
             }, success: {
                 if let temperature = ghApi.temperature() {
+                    tempDbl = temperature
                     tempString = String(format: "%.1f°", temperature)
                     self.setBackgroundColor(temperature)
                 }
@@ -139,17 +146,26 @@ class ViewController: UIViewController {
         humidityLabel.text = humidityString
         
         var outsideTempString = "--°"
-        let jsonData2 = NSData(contentsOfURL: outsideUrl)
-        if let jsonData2 = jsonData2 {
-            var error: NSError?
-            if let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData2, options: nil, error: &error) as? NSDictionary {
-                if (error == nil) {
-                    outsideTempString = String(format: "%.1f°", jsonDict["temp_f"] as! Double)
-                }
-            }
-        }
         
+        let weatherApi = WeatherAPI()
+        weatherApi.refreshData("STATION-HERE",
+            failure: { error in
+            }, success: {
+                if let temperature = weatherApi.temperature() {
+                    outsideTempString = String(format: "%.1f°", temperature)
+                }
+        })
+
         outsideTempLabel.text = outsideTempString
+        
+        self.previousTemp = tempDbl
+        let imageArray = self.di.temperatureChangeAnimation(self.previousTemp, stoppingTemp: tempDbl)
+        let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
+        self.dialImage.animationImages = imageArray
+        self.dialImage.image = imageArray.last
+        self.dialImage.animationRepeatCount = 1
+        self.dialImage.animationDuration = imageArray.count > 10 ? 1.0 : 2.0
+        self.dialImage.startAnimating()
     }
     
     func setBackgroundColor(temperature: Double) {
