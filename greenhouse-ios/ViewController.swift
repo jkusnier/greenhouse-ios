@@ -160,12 +160,13 @@ class ViewController: UIViewController {
         
         self.previousTemp = tempDbl
         let imageArray = self.di.temperatureChangeAnimation(self.previousTemp, stoppingTemp: tempDbl)
-        let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
-        self.dialImage.animationImages = imageArray
-        self.dialImage.image = imageArray.last
-        self.dialImage.animationRepeatCount = 1
-        self.dialImage.animationDuration = imageArray.count > 10 ? 1.0 : 2.0
-        self.dialImage.startAnimating()
+        if imageArray.count > 0 {
+            self.dialImage.animationImages = imageArray
+            self.dialImage.image = imageArray.last
+            self.dialImage.animationRepeatCount = 1
+            self.dialImage.animationDuration = imageArray.count > 10 ? 1.0 : 2.0
+            self.dialImage.startAnimating()
+        }
     }
     
     func setBackgroundColor(temperature: Double) {
