@@ -23,6 +23,10 @@ class InterfaceController: WKInterfaceController {
     var limitLow: Double = 38
     var limitHigh: Double = 85
     
+    let animationThreshold = 10
+    let animationFast = 3.0
+    let animationSlow = 1.0
+    
     let limitLowColor = UIColor(red: 132/255, green: 183/255, blue: 255/255, alpha: 1) //UIColor.blueColor()
     let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
     let limitNormalColor = UIColor(red: 188/255, green: 226/255, blue: 158/255, alpha: 1) //UIColor.greenColor()
@@ -97,7 +101,7 @@ class InterfaceController: WKInterfaceController {
         let dialImage = UIImage.animatedImageWithImages(imageArray, duration: 1.0)
 
         self.mainGroup.setBackgroundImage(dialImage)
-        let tInterval = imageArray.count > 10 ? 3.0 : 1.0
+        let tInterval = imageArray.count > self.animationThreshold ? self.animationSlow : self.animationFast
         self.mainGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: imageArray.count), duration: tInterval, repeatCount: 1)
     }
     
