@@ -118,9 +118,15 @@ class ViewController: UIViewController {
     }
 
     func updateTitle() {
-        var tempString = "--°"
-        var humidityString = "---%"
+        let temperatureFmt = "%.1f°"
+        let humdityFmt = "%d%%"
+        let defaultTemp = "--°"
+        let defaultHumidty = "---%"
+        
+        var tempString = defaultTemp
+        var humidityString = defaultHumidty
         var tempDbl = 0.0
+
         
         let ghApi = GreenhouseAPI()
         ghApi.refreshData(self.deviceId,
@@ -128,12 +134,12 @@ class ViewController: UIViewController {
             }, success: {
                 if let temperature = ghApi.temperature() {
                     tempDbl = temperature
-                    tempString = String(format: "%.1f°", temperature)
+                    tempString = String(format: temperatureFmt, temperature)
                     self.setBackgroundColor(temperature)
                 }
                 
                 if let humidity = ghApi.humidity() {
-                    humidityString = String(format: "%d%%", humidity)
+                    humidityString = String(format: humdityFmt, humidity)
                 }
                 
                 if let publishedAt = ghApi.publishedAt() {
@@ -145,14 +151,14 @@ class ViewController: UIViewController {
         temperatureLabel.text = tempString
         humidityLabel.text = humidityString
         
-        var outsideTempString = "--°"
+        var outsideTempString = defaultTemp
         
         let weatherApi = WeatherAPI()
         weatherApi.refreshData("STATION-HERE",
             failure: { error in
             }, success: {
                 if let temperature = weatherApi.temperature() {
-                    outsideTempString = String(format: "%.1f°", temperature)
+                    outsideTempString = String(format: temperatureFmt, temperature)
                 }
         })
 
