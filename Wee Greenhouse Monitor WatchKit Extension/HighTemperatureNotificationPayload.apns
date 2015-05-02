@@ -1,0 +1,9 @@
+{
+    "aps": {
+        "alert": {
+            "body": "High Temperature",
+            "title": "High temperature title"
+        },
+        "category": "highTemperature"
+    }
+}

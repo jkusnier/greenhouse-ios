@@ -136,6 +136,7 @@
 
 /* Begin PBXFileReference section */
 		960DA6201AD350CD00A33A1D /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		9618BE281AF502270002D94C /* HighTemperatureNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = HighTemperatureNotificationPayload.apns; sourceTree = "<group>"; };
 		9628DEE01AC8CE0500748171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9628DEE21AC8CE9800748171 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		962BE69F1AAFCDFC00CB0CA1 /* GlanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 			children = (
 				96FF30D61AAD10AA00FC1B1D /* Info.plist */,
 				96FF30D71AAD10AA00FC1B1D /* PushNotificationPayload.apns */,
+				9618BE281AF502270002D94C /* HighTemperatureNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
