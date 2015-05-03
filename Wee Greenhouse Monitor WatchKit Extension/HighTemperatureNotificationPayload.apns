@@ -1,7 +1,7 @@
 {
     "aps": {
         "alert": {
-            "body": "High Temperature",
+            "body": "Temp at 86.0°",
             "title": "High temperature title"
         },
         "category": "highTemperature"
