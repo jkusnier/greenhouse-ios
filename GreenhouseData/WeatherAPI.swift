@@ -13,7 +13,7 @@ public class WeatherAPI {
     var _temperature: Double?
     var _publishedAt: NSDate?
     
-    let outsideUrl:NSURL = NSURL(string: "http://api.weecode.com/greenhouse/v1/weather/STATION-HERE/fahrenheit/now")!
+    let outsideUrl:NSURL = NSURL(string: "http://api.openweathermap.org/data/2.5/weather?zip=48901,us")!
     
     public init() {}
     
@@ -24,12 +24,15 @@ public class WeatherAPI {
             var error: NSError?
             if let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as? NSDictionary {
                 if (error == nil) {
-                    if let temperature = jsonDict["temp_f"] as? Double {
-                        self._temperature = temperature
+
+                    if let main = jsonDict["main"] as? NSDictionary {
+                        if let temperature = main["temp"] as? Double {
+                            self._temperature = 1.8 * (temperature - 273) + 32
+                        }
                     }
-                    
-                    if let publishedAt = jsonDict["time"] as? String {
-                        self._publishedAt = NSDate(dateString: publishedAt)
+
+                    if let publishedAt = jsonDict["dt"] as? Double {
+                        self._publishedAt = NSDate(timeIntervalSince1970: publishedAt)
                     }
                     
                     if let succeed = succeed {
