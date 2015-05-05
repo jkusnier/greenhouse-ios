@@ -54,6 +54,26 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopTimer", name: UIApplicationWillResignActiveNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetTimer:", name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.stringForKey("zipCode") == nil {
+            var alert = UIAlertController(title: "Zip Code", message: "For outside temperature", preferredStyle: .Alert)
+            
+            alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            })
+
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                let textField = alert.textFields![0] as! UITextField
+                defaults.setValue(textField.text, forKey: "zipCode")
+                defaults.synchronize()
+            }))
+
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
 
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
