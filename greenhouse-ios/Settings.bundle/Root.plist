@@ -92,6 +92,20 @@
 		</dict>
 		<dict>
 			<key>Title</key>
+			<string>Zip Code</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Key</key>
+			<string>zipCode</string>
+			<key>Title</key>
+			<string>Zip Code</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Title</key>
 			<string>About</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
