@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     
     var limitLow: Double = 38
     var limitHigh: Double = 85
+    var zipCode: String?
     
     let limitLowColor = UIColor(red: 132/255, green: 183/255, blue: 255/255, alpha: 1) //UIColor.blueColor()
     let limitHighColor = UIColor(red: 237/255, green: 88/255, blue: 141/255, alpha: 1) //UIColor.redColor()
@@ -108,6 +109,9 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
         self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
+        if let zipCode = defaults.stringForKey("zipCode") {
+            self.zipCode = zipCode
+        }
         if let deviceId = defaults.stringForKey("deviceId") {
             if deviceId.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
                 defaults.removeObjectForKey("deviceId")
@@ -173,14 +177,16 @@ class ViewController: UIViewController {
         
         var outsideTempString = defaultTemp
         
-        let weatherApi = WeatherAPI()
-        weatherApi.refreshData("STATION-HERE",
-            failure: { error in
-            }, success: {
-                if let temperature = weatherApi.temperature() {
-                    outsideTempString = String(format: temperatureFmt, temperature)
-                }
-        })
+        if let zipCode = zipCode {
+            let weatherApi = WeatherAPI()
+            weatherApi.refreshData(zipCode,
+                failure: { error in
+                }, success: {
+                    if let temperature = weatherApi.temperature() {
+                        outsideTempString = String(format: temperatureFmt, temperature)
+                    }
+            })
+        }
 
         outsideTempLabel.text = outsideTempString
         

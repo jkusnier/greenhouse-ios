@@ -13,11 +13,13 @@ public class WeatherAPI {
     var _temperature: Double?
     var _publishedAt: NSDate?
     
-    let outsideUrl:NSURL = NSURL(string: "http://api.openweathermap.org/data/2.5/weather?zip=48901,us")!
+    let outsideUrlPrefix:String = "http://api.openweathermap.org/data/2.5/weather?zip="
+    let outsideUrlSuffix:String = ",us"
     
     public init() {}
     
-    public func refreshData(stationId: String, failure fail: (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
+    public func refreshData(zipCode: String, failure fail: (NSError? -> ())? = { error in println(error) }, success succeed: (() -> ())? = nil) {
+        let outsideUrl = NSURL(string: "\(self.outsideUrlPrefix)\(zipCode)\(outsideUrlSuffix)")!
         
         let jsonData = NSData(contentsOfURL: outsideUrl)
         if let jsonData = jsonData {
