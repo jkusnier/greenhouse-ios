@@ -129,6 +129,10 @@ public class DialImages {
                 println("Down -> Below Low")
             }
         }
+        
+        if imageArray.count > 50 {
+            imageArray = imageArray.filter { find(imageArray, $0)! % 2 == 0 }
+        }
 
         return imageArray
     }
