@@ -56,7 +56,6 @@ class InterfaceController: WKInterfaceController {
         self.setTitle("Greenhouse")
         
         // Configure interface objects here.
-        updateTitle()
     }
 
     deinit {
