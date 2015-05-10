@@ -24,6 +24,15 @@
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                     </items>
+                    <menu key="menu" id="AHL-H2-EKy">
+                        <items>
+                            <menuItem title="Refresh" image="menu-icon-refresh" id="0LZ-Zy-HGs">
+                                <connections>
+                                    <action selector="refreshTemperature" destination="AgC-eL-Hgc" id="161-25-Jd0"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <variation key="default">
                         <mask key="items">
                             <exclude reference="WF2-aS-NcD"/>

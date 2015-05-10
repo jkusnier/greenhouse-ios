@@ -128,4 +128,8 @@ class InterfaceController: WKInterfaceController {
     func stopTimer() {
         mainTimer?.invalidate()
     }
+    
+    @IBAction func refreshTemperature() {
+        updateTitle()
+    }
 }
