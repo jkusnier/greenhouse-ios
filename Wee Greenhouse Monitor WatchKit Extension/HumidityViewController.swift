@@ -122,4 +122,8 @@ class HumidityViewController: WKInterfaceController {
     func stopTimer() {
         mainTimer?.invalidate()
     }
+    
+    @IBAction func refreshHumidity() {
+        updateTitle()
+    }
 }

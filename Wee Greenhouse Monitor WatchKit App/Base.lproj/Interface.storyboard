@@ -127,6 +127,15 @@
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                     </items>
+                    <menu key="menu" id="qEl-5f-EuT">
+                        <items>
+                            <menuItem title="Refresh" image="menu-icon-refresh" id="OPX-qa-Ig9">
+                                <connections>
+                                    <action selector="refreshHumidity" destination="2Oa-s4-yg9" id="g6k-xP-1Qk"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="humidityLabel" destination="oVz-WW-N5g" id="dqR-m4-5VJ"/>
                         <outlet property="lastUpdated" destination="EIG-vd-J9K" id="tgm-2U-dWB"/>
