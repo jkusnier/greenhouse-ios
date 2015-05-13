@@ -69,7 +69,7 @@
             <objects>
                 <glanceController id="ZRL-K4-Awb" customClass="GlanceController" customModule="Wee_Greenhouse_Monitor_WatchKit_Extension">
                     <items>
-                        <group alignment="left" id="Z3g-TJ-nsR"/>
+                        <group alignment="left" backgroundImage="glance-top" contentMode="scaleAspectFit" id="Z3g-TJ-nsR"/>
                         <group alignment="left" layout="vertical" id="pfm-rB-fmC">
                             <items>
                                 <label alignment="center" text="34.7°" id="cP5-qQ-Ltn">
