@@ -64,6 +64,7 @@ class ViewController: UIViewController {
             var alert = UIAlertController(title: "Zip Code", message: "For outside temperature", preferredStyle: .Alert)
             
             alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+                textField.keyboardType = UIKeyboardType.NumberPad
             })
 
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
