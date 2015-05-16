@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import XCGLogger
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let log = XCGLogger.defaultInstance()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        #if DEBUG
+            log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+        #else
+            log.setup(logLevel: .Severe, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+        #endif
+        
         UIDevice.currentDevice().batteryMonitoringEnabled = true
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
@@ -23,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         let defaultsDict = ["lowTempAlert": 38, "highTempAlert": 85, "deviceId": "50ff6c065067545628550887"]
         defaults.registerDefaults(defaultsDict)
+        
+        log.debug("application launched")
         
         return true
     }
