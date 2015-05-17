@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import XCGLogger
 
 public class DialImages {
+    
+    let log = XCGLogger.defaultInstance()
     
     let normalImagePrefix = "green-dial-outer-"
     let lowImagePrefix = "blue-dial-outer-"
@@ -72,7 +75,7 @@ public class DialImages {
                 doLoop(self.previousImageIndex, imageMax, false, { i in appendImage(i, self.lowImagePrefix) })
                 
                 completeLoop(imageMax > 0, imageIndex, 0)
-                DLog("Up -> Below Low")
+                log.debug("Up -> Below Low")
             }
             if !isDone && startingTemp < self.limitHigh {
                 // Load green from 0 to tempDbl or 100
@@ -83,7 +86,7 @@ public class DialImages {
                 doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.normalImagePrefix) })
                 
                 completeLoop(imageMax < 100, imageIndex, 0)
-                DLog("Up -> Normal")
+                log.debug("Up -> Normal")
             }
             if !isDone && stoppingTemp >= self.limitHigh {
                 // Load red from 0 to tempDbl or 100
@@ -93,7 +96,7 @@ public class DialImages {
                 doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.highImagePrefix) })
                 
                 self.previousImageIndex = imageIndex
-                DLog("Up -> Above High")
+                log.debug("Up -> Above High")
             }
         } else { // Going Down
             if startingTemp >= self.limitHigh {
@@ -105,7 +108,7 @@ public class DialImages {
                 doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.highImagePrefix) })
                 
                 completeLoop(imageMin > 0, imageIndex, 100)
-                DLog("Down -> Above High")
+                log.debug("Down -> Above High")
             }
             if !isDone && startingTemp > self.limitLow {
                 // Load green from previousTemp to tempDbl or 0
@@ -116,7 +119,7 @@ public class DialImages {
                 doLoop(self.previousImageIndex, imageMin, false, { i in appendImage(i, self.normalImagePrefix) })
                 
                 completeLoop(imageMin > 0, imageIndex, 0)
-                DLog("Down -> Normal")
+                log.debug("Down -> Normal")
             }
             if !isDone && stoppingTemp <= self.limitLow {
                 // Load blue from 0 to tempDbl or 100
@@ -126,7 +129,7 @@ public class DialImages {
                 doLoop(self.previousImageIndex, imageMax, true, { i in appendImage(i, self.lowImagePrefix) })
                 
                 self.previousImageIndex = imageIndex
-                DLog("Down -> Below Low")
+                log.debug("Down -> Below Low")
             }
         }
         
@@ -135,11 +138,5 @@ public class DialImages {
         }
 
         return imageArray
-    }
-    
-    func DLog(message: String, function: String = __FUNCTION__) {
-        #if DEBUG
-            println("\(function): \(message)")
-        #endif
     }
 }
