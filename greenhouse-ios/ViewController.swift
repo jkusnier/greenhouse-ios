@@ -8,6 +8,7 @@
 
 import UIKit
 import GreenhouseData
+import XCGLogger
 
 private var defaultsContext = 0
 
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var outsideTempLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    let log = XCGLogger.defaultInstance()
     
     var allLabels: [UILabel]?
     
@@ -123,7 +126,7 @@ class ViewController: UIViewController {
                 self.deviceId = deviceId
                 updateTitle()
             } else {
-                println("deviceId not found")
+                log.info("deviceId not found")
             }
         }
     }
