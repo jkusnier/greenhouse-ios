@@ -74,6 +74,11 @@ class ViewController: UIViewController {
                 let textField = alert.textFields![0] as! UITextField
                 defaults.setValue(textField.text, forKey: "zipCode")
                 defaults.synchronize()
+                self.log.debug {
+                    let zipCode = defaults.stringForKey("zipCode")
+                    let match = textField.text == zipCode
+                    return "Zip Code - Entered: \(textField.text), Saved: \(zipCode), Match: \(match)"
+                }
             }))
 
             self.presentViewController(alert, animated: true, completion: nil)
