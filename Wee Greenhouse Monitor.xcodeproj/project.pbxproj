@@ -18,6 +18,8 @@
 		962F371B1AC8AAF100EBA5B2 /* GreenhouseDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F371A1AC8AAF100EBA5B2 /* GreenhouseDataTests.swift */; };
 		962F371E1AC8AAF100EBA5B2 /* GreenhouseData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962F37071AC8AAF100EBA5B2 /* GreenhouseData.framework */; };
 		962F37281AC8AAFF00EBA5B2 /* DialImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F37271AC8AAFF00EBA5B2 /* DialImages.swift */; };
+		9637F71D1B0BEB520029680C /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968407D31B07CF480004738B /* XCGLogger.framework */; };
+		9637F71F1B0BEBD50029680C /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 968407D31B07CF480004738B /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965E3BE01ACE12790013CD4A /* GreenhouseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E3BDF1ACE12790013CD4A /* GreenhouseAPI.swift */; };
 		966A2C811ADDE7BA0029759F /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A2C801ADDE7BA0029759F /* WeatherAPI.swift */; };
 		967862F91AA24BFC004AB4C0 /* DeviceIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967862F81AA24BFC004AB4C0 /* DeviceIdViewController.swift */; };
@@ -77,6 +79,13 @@
 			remoteGlobalIDString = 962F37061AC8AAF100EBA5B2;
 			remoteInfo = GreenhouseData;
 		};
+		9637F7201B0BEBD50029680C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 968407CC1B07CF480004738B /* XCGLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E3EE4419D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
 		968407D21B07CF480004738B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 968407CC1B07CF480004738B /* XCGLogger.xcodeproj */;
@@ -129,6 +138,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				961693E51AE444960006ECB1 /* GreenhouseData.framework in Embed Frameworks */,
+				9637F71F1B0BEBD50029680C /* XCGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9637F71D1B0BEB520029680C /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +474,7 @@
 				96FF30ED1AAD10AA00FC1B1D /* PBXTargetDependency */,
 				962F371D1AC8AAF100EBA5B2 /* PBXTargetDependency */,
 				961693E21AE444750006ECB1 /* PBXTargetDependency */,
+				9637F7211B0BEBD50029680C /* PBXTargetDependency */,
 			);
 			name = "Wee Greenhouse Monitor";
 			productName = "greenhouse-ios";
@@ -760,6 +772,11 @@
 			isa = PBXTargetDependency;
 			target = 962F37061AC8AAF100EBA5B2 /* GreenhouseData */;
 			targetProxy = 962F372B1AC8AB2200EBA5B2 /* PBXContainerItemProxy */;
+		};
+		9637F7211B0BEBD50029680C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCGLogger (iOS)";
+			targetProxy = 9637F7201B0BEBD50029680C /* PBXContainerItemProxy */;
 		};
 		96CDEC5519F9CB1700736E4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
