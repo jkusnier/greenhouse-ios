@@ -116,11 +116,15 @@ class ViewController: UIViewController {
     }
 
     func updateDefaults() {
+        log.debug("updateDefaults")
         let defaults = NSUserDefaults.standardUserDefaults()
         self.limitLow = Double(defaults.floatForKey("lowTempAlert"))
+        log.debug("limitLow -> \(self.limitLow)")
         self.limitHigh = Double(defaults.floatForKey("highTempAlert"))
+        log.debug("limitHigh -> \(self.limitHigh)")
         if let zipCode = defaults.stringForKey("zipCode") {
             self.zipCode = zipCode
+            log.debug("zipCode -> \(self.zipCode)")
         }
         if let deviceId = defaults.stringForKey("deviceId") {
             if deviceId.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
@@ -130,6 +134,7 @@ class ViewController: UIViewController {
             
             if let deviceId = defaults.stringForKey("deviceId") {
                 self.deviceId = deviceId
+                log.debug("deviceId -> \(self.deviceId)")
                 updateTitle()
             } else {
                 log.info("deviceId not found")
