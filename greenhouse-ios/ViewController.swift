@@ -144,16 +144,19 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        log.warning("didReceiveMemoryWarning")
     }
     
     func resetTimer(aNotification: NSNotification) {
         mainTimer?.invalidate()
         mainTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: Selector("updateTitle"), userInfo: nil, repeats: true)
         updateTitle()
+        log.debug("resetTimer")
     }
     
     func stopTimer() {
         mainTimer?.invalidate()
+        log.debug("stopTimer")
     }
 
     func updateTitle() {
