@@ -82,6 +82,7 @@ class ViewController: UIViewController {
             }))
 
             self.presentViewController(alert, animated: true, completion: nil)
+            log.debug("Asking for zipCode")
         }
     }
 
